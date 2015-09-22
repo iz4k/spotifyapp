@@ -9,6 +9,7 @@
     "angular-route": "^1.3.0",
     "angular-sanitize": "^1.3.0",
     "angular-touch": "^1.3.0",
+    "hammerjs": "~2.0.4",
     "normalize-css": "normalize.css#~3.0.3"
   },
   "devDependencies": {
