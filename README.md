@@ -2,8 +2,7 @@
 
 install dependencies: 
 
-npm install
-bower install
+npm install && bower install
 
 
 start the server: 
