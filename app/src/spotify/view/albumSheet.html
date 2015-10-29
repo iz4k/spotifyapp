@@ -1,0 +1,19 @@
+<md-bottom-sheet class="md-list md-has-header">
+
+
+  <md-subheader>
+    <span class="name">{{selectedAlbum.artists[0].name}}</span>
+  </md-subheader>
+
+  <md-list>
+
+    <md-item ng-repeat="item in selectedAlbum.tracks.items">
+      <md-button ng-click="playSong(item)">
+        <md-icon md-svg-icon="assets/svg/play.svg"></md-icon>
+        {{item.name}}
+      </md-button>
+    </md-item>
+
+  </md-list>
+
+</md-bottom-sheet>
