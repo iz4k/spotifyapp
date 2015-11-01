@@ -2,9 +2,11 @@
 
 Install dependencies: 
 
+```
 npm install && bower install
+```
 
-Start the server with python 2.x:
+Start the development server with python 2.x:
 
 ```
 python -m SimpleHTTPServer
