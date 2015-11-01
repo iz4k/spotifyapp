@@ -1,15 +1,23 @@
 # Spotify Touchy
 
-install dependencies: 
+Install dependencies: 
 
+```
 npm install && bower install
+```
 
+Start the development server with Python 2.x:
 
-start the server: 
-
+```
 python -m SimpleHTTPServer
+```
 
-go to url:
+For Python 3.x the equivalent command is:
+```
+python -m http.server
+```
+
+Go to url:
 http://localhost:8000/app/
 
-do stuff, maybe
+Do stuff, maybe.
