@@ -19,6 +19,10 @@
             id: 'id'
           },
           isArray: false
+        },
+        authorizeUser: {
+          url: 'https://accounts.spotify.com/authorize',
+          method: 'GET',
         }
       });
 

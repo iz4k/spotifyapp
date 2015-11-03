@@ -1,18 +1,15 @@
 {
-  "name": "material-start",
+  "name": "Spotifyapp",
   "private": true,
-  "version": "0.0.3",
-  "description": "A starter project for AngularJS Material",
-  "repository": "https://github.com/angular/material-start",
+  "version": "0.0.1",
+  "description": "A demonstration of touch capabilities on the web with a spotify integration",
+  "repository": "https://github.com/iz4k/spotifyapp",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
     "protractor": "^2.0.0",
-    "http-server": "^0.6.1",
     "bower": "^1.3.1",
-    "shelljs": "^0.2.6",
-    "karma-junit-reporter": "^0.2.2",
-    "selenium-webdriver": "^2.45.1"
+    "shelljs": "^0.2.6"
   },
   "scripts": {
     "postinstall": "bower update",
