@@ -7,9 +7,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
 
-  <!--  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>-->
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
   <link rel="stylesheet" href="styles/app.css" />
 
   <style type="text/css">
@@ -32,12 +34,15 @@
 <body ng-app="spotifyApp" ng-controller="AppController" ng-cloak>
   
   <div ng-show="showplayer">
-    <div class="side-navigation">
-      <ul>
-        <li>todo</li>
-        <li ui-sref="playlist">playlists</li>
-        <li>todo</li>
-      </ul>
+    <h1 class="header"><i class="fa fa-spotify fa-lg"></i>Spotify Touch</h1>
+  <div id="side-navigation" ng-controller="navController" ng-click="openNav()" ng-class="{'open': navOpen}">
+    <ul>
+      <li ui-sref="search"><i class="fa fa-search fa-lg"></i>Search</li>
+      <li ui-sref="playlist"><i class="fa fa-list fa-lg"></i>Playlists</li>
+      <li><i class="fa fa-wheelchair fa-lg"></i>Browse</li>
+    </ul>
+    <!--    <span class="menu-text">Menu</span>-->
+    <span class="fa fa-arrow-down"></span>
     </div>
 
     <div ng-controller="loginController">
@@ -46,6 +51,7 @@
     
     <div ui-view>
     </div>
+
   </div>
 
   <div ng-show="showlogin">
@@ -64,6 +70,7 @@
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/hammerjs/hammer.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
 
   <!--scripts-->
   <script src="app.js"></script>
@@ -71,6 +78,8 @@
   <script src="scripts/controllers/playlistController.js"></script>
   <script src="scripts/services/SpotifyService.js"></script>
   <script src="scripts/services/auth.js"></script>
+  <script src="scripts/controllers/navigationController.js"></script>
+  <script src="scripts/controllers/searchController.js"></script>
 
 </body>
 

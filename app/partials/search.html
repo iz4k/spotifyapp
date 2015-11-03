@@ -1,0 +1,13 @@
+<div class="search-wrapper" ng-class="{'initial': !searchTerm}">
+  <input type="text" ng-model="searchTerm" ng-change="search()" class="search-input" placeholder="Search">
+  <div class="type-selector">
+    <div class="albums" ng-click="searchType='Album'; search();" ng-class="{'selected': searchType == 'Album'}">Album</div>
+    <div class="artists" ng-click="searchType='Artist'; search();" ng-class="{'selected': searchType == 'Artist'}">Artist</div>
+  </div>
+</div>
+<div ng-repeat=" item in results " class="search-results">
+  <img src="{{item.images[1].url}} " alt="image caption ">
+  <div>
+    <h2>{{item.name}}</h2>
+  </div>
+</div>

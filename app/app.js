@@ -9,6 +9,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/playlist',
       controller: 'playlistController',
       templateUrl: 'partials/playlist.html'
+    }).state('search', {
+      url: '/search',
+      controller: 'searchController',
+      templateUrl: 'partials/search.html'
     });
 });
 
