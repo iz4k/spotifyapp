@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+  <!--  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>-->
   <link rel="stylesheet" href="styles/app.css" />
 
   <style type="text/css">
@@ -29,31 +29,18 @@
 
 </head>
 
-<body ng-app="spotifyApp" ng-controller="SpotifyController" ng-cloak>
-
+<body ng-app="spotifyApp" ng-cloak>
+  <div class="side-navigation">
+    <ul>
+      <li>todo</li>
+      <li ui-sref="playlist">playlists</li>
+      <li>todo</li>
+    </ul>
+  </div>
   <div ui-view>
   </div>
 
-  <!--
-  <div layout="column" layout-fill id="myElement">
-    <md-toolbar class="md-tall" layout-align="center center">
-      <h1>Spotify Search</h1>
-    </md-toolbar>
-    <md-content>
-      <md-input-container>
-        <input type="text" ng-model="searchTerm" class="searchBox" ng-change="search()" autofocus>
-      </md-input-container>
-      <div layout="row" layout-wrap>
-        <md-card ng-repeat="album in results" flex="25" flex-md="33" flex-sm="50" ng-click="openBottomSheet(album)">
-          <img src="{{album.images[1].url}}" class="md-card-image" alt="image caption">
-          <md-card-content>
-            <h2>{{album.name}}</h2>
-          </md-card-content>
-        </md-card>
-      </div>
-    </md-content>
-  </div>
--->
+
   <!--bower components-->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -64,9 +51,8 @@
 
   <!--scripts-->
   <script src="app.js"></script>
-  <script src="scripts/Spotify.js"></script>
-  <script src="scripts/controllers/SpotifyController.js"></script>
   <script src="scripts/controllers/loginController.js"></script>
+  <script src="scripts/controllers/playlistController.js"></script>
   <script src="scripts/services/SpotifyService.js"></script>
 
 </body>

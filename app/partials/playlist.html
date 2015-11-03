@@ -1,0 +1,7 @@
+<input type="text" ng-model="searchTerm" ng-change="search()" autofocus> {{searchType}}
+<div ng-repeat="album in results" ng-click="openBottomSheet(album)">
+  <img src="{{album.images[1].url}}" alt="image caption">
+  <div>
+    <h2>{{album.name}}</h2>
+  </div>
+</div>

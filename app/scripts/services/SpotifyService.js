@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  angular.module('spotify')
+  angular.module('spotifyApp')
     .service('spotifyService', function ($resource) {
       return $resource('https://api.spotify.com/v1/search', {}, {
         getResults: {

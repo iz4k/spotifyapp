@@ -1,4 +1,4 @@
-angular.module('spotifyApp', ['spotify', 'ui.router', 'ngResource'])
+angular.module('spotifyApp', ['ui.router', 'ngResource'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -12,7 +12,7 @@ angular.module('spotifyApp', ['spotify', 'ui.router', 'ngResource'])
     })
     .state('playlist', {
       url: '/playlist',
-      contoller: 'playlistCtrl',
+      controller: 'playlistController',
       templateUrl: 'partials/playlist.html'
     });
 });
