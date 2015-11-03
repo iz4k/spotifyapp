@@ -1,3 +1,5 @@
+/*general rules*/
+
 * {
   margin,
   padding: 0;
@@ -6,4 +8,75 @@
 html,
 body {
   font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+
+/*header*/
+
+.header {
+  text-align: right;
+  background-color: #81b71a;
+  margin: 0;
+  padding: 10px;
+  color: #fff;
+}
+
+.header i {
+  margin-right: 10px;
+  color: #fff;
+}
+
+
+/*navigation menu*/
+
+#side-navigation {
+  background: linear-gradient( -25deg, transparent 35%, #333 25%);
+  color: #d1d1d1;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateY(-60%);
+  -ms-transform: translateY(-60%);
+  transform: translateY(-60%);
+  left: 0;
+  height: 50%;
+  transition: ease-in 0.25s all;
+}
+
+#side-navigation.open {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+
+#side-navigation ul {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+  list-style: none;
+  display: inline-block;
+}
+
+#side-navigation ul li {
+  display: block;
+  margin: 30px 15px;
+}
+
+#side-navigation ul li i {
+  margin-right: 10px;
+}
+
+#side-navigation .menu-text {
+  display: block;
+  margin-left: 30px;
+  transform: rotate(-25deg);
+  letter-spacing: 2px;
+}
+
+#side-navigation .fa-arrow-down {
+  position: absolute;
+  bottom: 90px;
+  left: 10px;
 }
