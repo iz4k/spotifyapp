@@ -5,28 +5,31 @@
     .controller('navController', function ($scope, $log) {
       $scope.navOpen = false;
       $scope.openNav = function () {
-        $scope.navOpen = !$scope.navOpen;
-      }
+   console.log('asfg');
+   $scope.navOpen = !$scope.navOpen;
+ }
 
-      //      var e = document.getElementById('side-navigation');
-      //      var ham = new Hammer(e);
-      //      console.log('ham is ', ham);
-      //      ham.get('pan').set({
-      //        direction: Hammer.DIRECTION_ALL
-      //      });
-      //      ham.on('panstart', function (event) {
-      //        $log.debug('drag started', event);
-      //      });
-      //
-      //      ham.on('pan', function (event) {
-      //        console.log($(event.target).parent()[0]);
-      //        //        if (event.deltaY <= 0) {
-      //        $(event.target).parent().css({
-      //          'transform': 'translateY(' + event.deltaY + 'px)'
-      //        });
-      //        //        }
-      //        console.log('pan', event, event.deltaY);
-      //      });
+//      var e = document.getElementById('side-navigation');
+//      var ham = new Hammer(e);
+//      //            console.log('ham is ', ham);
+//      ham.get('swipe').set({
+//        direction: Hammer.DIRECTION_ALL
+//      });
+//      ham.on('swipe', function (event) {
+//        $log.debug('swiping', event);
+//      });
+//
+//      ham.on('pandown', function (event) {
+//        $(event.target).css({
+//          'transform': 'translateY(0px)'
+//        });
+//      });
+//
+//      ham.on('panup', function (event) {
+//        $(event.target).css({
+//          'transform': 'translateY(-70%)'
+//        });
+//      });
       //
       //      ham.on('panend', function (event) {
       //        console.log('dragend', event.target);

@@ -175,10 +175,13 @@ body {
   height: 150px;
   width: auto;
   float: left;
-
-
 }
 
+
+/*login*/
+
+
+/*
 .login-form > h2 {
   margin-left: auto;
   margin-right: auto;
@@ -189,12 +192,23 @@ body {
   margin: 10% 10% 10% 10%;
   padding: 10% 10% 10% 10%;
 }
+*/
 
 .login-form > a {
-    display: inline-block;
-    text-align: center;
-    background-color: #070;
-    color: #fff;
-    padding: 10px 40px;
-    border-radius: 50px;
+  display: inline-block;
+  text-align: center;
+  background-color: #333;
+  color: #d1d1d1;
+  padding: 10px 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
 }
