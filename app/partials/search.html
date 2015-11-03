@@ -5,9 +5,9 @@
     <div class="artists" ng-click="searchType='Artist'; search();" ng-class="{'selected': searchType == 'Artist'}">Artist</div>
   </div>
 </div>
-<div ng-repeat=" item in results " class="search-results">
+<div ng-repeat=" item in results " class="search-results clearfix">
   <img src="{{item.images[1].url}} " alt="image caption ">
-  <div>
-    <h2>{{item.name}}</h2>
+  <div class="content">
+    <p>{{item.name}}</p>
   </div>
 </div>
