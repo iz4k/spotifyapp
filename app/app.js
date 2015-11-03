@@ -40,7 +40,7 @@ app.controller('AppController', function($scope, Auth, $location) {
     $scope.$on('login', function() {
       $scope.showplayer = true;
       $scope.showlogin = false;
-      $location.path('/');
+      $location.path('/search');
     });
 
     $scope.$on('logout', function() {
