@@ -29,16 +29,32 @@
 
 </head>
 
-<body ng-app="spotifyApp" ng-cloak>
-  <div class="side-navigation">
-    <ul>
-      <li>todo</li>
-      <li ui-sref="playlist">playlists</li>
-      <li>todo</li>
-    </ul>
+<body ng-app="spotifyApp" ng-controller="AppController" ng-cloak>
+  
+  <div ng-show="showplayer">
+    <div class="side-navigation">
+      <ul>
+        <li>todo</li>
+        <li ui-sref="playlist">playlists</li>
+        <li>todo</li>
+      </ul>
+    </div>
+
+    <div ng-controller="loginController">
+      <button ng-click="logout()">Logout</button>
+    </div>
+    
+    <div ui-view>
+    </div>
   </div>
-  <div ui-view>
+
+  <div ng-show="showlogin">
+  <div ng-controller="loginController">
+    <h2>Login screen</h2>  
+    <button ng-click="login()">Login</button>
   </div>
+  </div>
+
 
 
   <!--bower components-->
@@ -54,6 +70,7 @@
   <script src="scripts/controllers/loginController.js"></script>
   <script src="scripts/controllers/playlistController.js"></script>
   <script src="scripts/services/SpotifyService.js"></script>
+  <script src="scripts/services/auth.js"></script>
 
 </body>
 

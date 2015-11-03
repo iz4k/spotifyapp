@@ -1,15 +1,10 @@
-angular.module('spotifyApp', ['ui.router', 'ngResource'])
+var app = angular.module('spotifyApp', ['ui.router', 'ngResource']);
 
-.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/login");
+  $urlRouterProvider.otherwise("/");
 
   $stateProvider
-    .state('login', {
-      url: '/login',
-      controller: 'loginController',
-      templateUrl: 'partials/login.html'
-    })
     .state('playlist', {
       url: '/playlist',
       controller: 'playlistController',
@@ -17,6 +12,40 @@ angular.module('spotifyApp', ['ui.router', 'ngResource'])
     });
 });
 
+app.controller('AppController', function($scope, Auth, $location) {
+    console.log('in AppController');
+
+    console.log(location);   
+
+    window.addEventListener("message", function(event) {
+      console.log('got postmessage', event);
+      var hash = JSON.parse(event.data);
+      if (hash.type == 'access_token') {
+        Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
+        // checkUser(true);
+      }
+    }, false);
+
+    $scope.isLoggedIn = (Auth.getAccessToken() != '');
+    $scope.showplayer = $scope.isLoggedIn;
+    $scope.showlogin = !$scope.isLoggedIn;
+
+    console.log('showlogin:' + $scope.showlogin);
+    console.log('showplayer:' + $scope.showplayer);
+
+    $scope.$on('login', function() {
+      $scope.showplayer = true;
+      $scope.showlogin = false;
+      $location.path('/');
+    });
+
+    $scope.$on('logout', function() {
+      $scope.showplayer = false;
+      $scope.showlogin = true;
+      $location.path('/');
+    });
+
+  });
 
 //    var myElement = document.getElementById('myElement');
 //
