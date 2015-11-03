@@ -43,7 +43,7 @@ body {
   -ms-transform: translateY(-70%);
   transform: translateY(-70%);
   left: 0;
-  height: 220px;
+  height: 290px;
   transition: ease-in 0.25s all;
   z-index: 999;
 }
@@ -82,7 +82,7 @@ body {
 
 #side-navigation .fa-arrow-down {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   left: 10px;
   -webkit-transform: rotate(0);
   -ms-transform: rotate(0);
@@ -158,4 +158,29 @@ body {
 .search-results img {
   width: 150px;
   height: 150px;
+}
+
+.login-form > h2 {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.login-form {
+  margin: 10% 10% 10% 10%;
+  padding: 10% 10% 10% 10%;
+  border: 2px solid;
+  border-radius: 5px;
+  background-color: #757575;
+
+}
+
+.login-form > a {
+    display: inline-block;
+    text-align: center;
+    background-color: #070;
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 50px;
+  
 }
