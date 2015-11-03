@@ -43,7 +43,7 @@ body {
   -ms-transform: translateY(-70%);
   transform: translateY(-70%);
   left: 0;
-  height: 35%;
+  height: 220px;
   transition: ease-in 0.25s all;
 }
 
@@ -148,6 +148,10 @@ body {
 
 .search-results {
   margin: 15px;
+}
+
+.search-results .content {
+  float: right;
 }
 
 .search-results img {
