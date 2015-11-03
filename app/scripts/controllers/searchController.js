@@ -11,7 +11,11 @@
           q: $scope.searchTerm,
           type: $scope.searchType
         }).$promise.then(function (data) {
-          $scope.results = data.albums.items;
+          if ($scope.searchType == 'Album') {
+            $scope.results = data.albums.items;
+          } else {
+            $scope.results = data.artists.items;
+          }
         });
       };
 
