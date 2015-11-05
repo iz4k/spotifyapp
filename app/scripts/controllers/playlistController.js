@@ -17,6 +17,11 @@
       $log.debug('in playlist controller');
       spotifyService.userInformation().$promise.then(function (data) {
         console.log('userdata', data);
+        spotifyService.getPlaylists({
+          userid: data.id
+        }).$promise.then(function (data2) {
+          console.log(data2, 'afte playlists');
+        })
       });
     })
 })();

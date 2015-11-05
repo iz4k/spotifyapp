@@ -27,6 +27,13 @@
           headers: {
             'Authorization': 'Bearer ' + Auth.getAccessToken()
           }
+        },
+        getPlaylists: {
+          url: 'https://api.spotify.com/v1/users/:userid/playlists',
+          method: 'GET',
+          params: {
+            userid: '@userid'
+          }
         }
       });
 
