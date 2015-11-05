@@ -216,17 +216,26 @@ body {
 /*now-playing*/
 
 .now-playing {
-  position: absolute;
+  position: fixed;
   height: 60%;
   width: 100%;
   background-color: #2E6121;
   bottom: 0;
+  overflow-y: hidden;
   transform: translateY(80%);
   transition: ease-in 0.25s all;
 }
 
 .now-playing.open {
   transform: translateY(0);
+}
+
+.now-playing .top {
+  height: 20%;
+}
+
+.now-playing .bottom {
+  height: 80%;
 }
 
 .now-playing p {
