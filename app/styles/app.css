@@ -161,13 +161,22 @@ body {
 .search-results {
   margin: 15px;
   display: block;
-  background-color: #e1e1e1;
 }
 
 .search-results .content {
   float: left;
-  margin: 15px;
+  margin-left: 15px;
   max-width: 165px;
+  height: 150px;
+}
+
+.search-results .albums {
+  font-weight: 600;
+}
+
+.search-results .artists {
+  font-weight: 200;
+  font-size: 14px;
 }
 
 .search-results img {
