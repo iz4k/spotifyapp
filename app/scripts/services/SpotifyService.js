@@ -1,10 +1,8 @@
-
-
 (function () {
   'use strict';
 
   angular.module('spotifyApp')
-    .service('spotifyService', function ($resource) {
+    .service('spotifyService', function ($resource, Auth) {
       return $resource('https://api.spotify.com/v1/search', {}, {
         getResults: {
           method: 'GET',
@@ -21,7 +19,14 @@
         },
         authorizeUser: {
           url: 'https://accounts.spotify.com/authorize',
+          method: 'GET'
+        },
+        userInformation: {
+          url: 'https://api.spotify.com/v1/me',
           method: 'GET',
+          headers: {
+            'Authorization': 'Bearer ' + Auth.getAccessToken()
+          }
         }
       });
 

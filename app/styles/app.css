@@ -211,3 +211,42 @@ body {
   font-size: 20px;
   text-transform: uppercase;
 }
+
+
+/*now-playing*/
+
+.now-playing {
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  background-color: #2E6121;
+  bottom: 0;
+  transform: translateY(80%);
+  transition: ease-in 0.25s all;
+}
+
+.now-playing.open {
+  transform: translateY(0);
+}
+
+.now-playing p {
+  text-align: center;
+  margin: 10px 0;
+  padding: 0;
+  color: #fff;
+}
+
+.now-playing .controls {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+}
+
+.now-playing .controls i {
+  margin-left: 20px;
+}
+
+.now-playing .controls i:first-child {
+  margin-left: 0;
+}

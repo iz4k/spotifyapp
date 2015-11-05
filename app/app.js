@@ -2,7 +2,7 @@ var app = angular.module('spotifyApp', ['ui.router', 'ngResource']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/search");
 
   $stateProvider
     .state('playlist', {
@@ -16,40 +16,41 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     });
 });
 
-app.controller('AppController', function($scope, Auth, $location) {
-    console.log('in AppController');
+app.controller('AppController', function ($scope, Auth, $location) {
+  $scope.playing = true;
+  console.log('in AppController');
 
-    console.log(location);   
+  console.log(location);
 
-    window.addEventListener("message", function(event) {
-      console.log('got postmessage', event);
-      var hash = JSON.parse(event.data);
-      if (hash.type == 'access_token') {
-        Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
-        // checkUser(true);
-      }
-    }, false);
+  window.addEventListener("message", function (event) {
+    console.log('got postmessage', event);
+    var hash = JSON.parse(event.data);
+    if (hash.type == 'access_token') {
+      Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
+      // checkUser(true);
+    }
+  }, false);
 
-    $scope.isLoggedIn = (Auth.getAccessToken() != '');
-    $scope.showplayer = $scope.isLoggedIn;
-    $scope.showlogin = !$scope.isLoggedIn;
+  $scope.isLoggedIn = (Auth.getAccessToken() != '');
+  $scope.showplayer = $scope.isLoggedIn;
+  $scope.showlogin = !$scope.isLoggedIn;
 
-    console.log('showlogin:' + $scope.showlogin);
-    console.log('showplayer:' + $scope.showplayer);
+  console.log('showlogin:' + $scope.showlogin);
+  console.log('showplayer:' + $scope.showplayer);
 
-    $scope.$on('login', function() {
-      $scope.showplayer = true;
-      $scope.showlogin = false;
-      $location.path('/search');
-    });
-
-    $scope.$on('logout', function() {
-      $scope.showplayer = false;
-      $scope.showlogin = true;
-      $location.path('/');
-    });
-
+  $scope.$on('login', function () {
+    $scope.showplayer = true;
+    $scope.showlogin = false;
+    $location.path('/search');
   });
+
+  $scope.$on('logout', function () {
+    $scope.showplayer = false;
+    $scope.showlogin = true;
+    $location.path('/');
+  });
+
+});
 
 //    var myElement = document.getElementById('myElement');
 //

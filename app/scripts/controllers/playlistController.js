@@ -15,5 +15,8 @@
       //        });
       //      };
       $log.debug('in playlist controller');
+      spotifyService.userInformation().$promise.then(function (data) {
+        console.log('userdata', data);
+      });
     })
 })();
