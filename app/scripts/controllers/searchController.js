@@ -2,7 +2,7 @@
 
   angular
     .module('spotifyApp')
-    .controller('searchController', function (spotifyService, $scope, $log, $timeout) {
+    .controller('searchController', function (spotifyService, nowPlayingService, $scope, $log, $timeout) {
       $scope.searchType = 'Album';
       $scope.selectedAlbum = '';
       $scope.results = [];
@@ -24,7 +24,14 @@
             $scope.results = data.artists.items;
           }
         });
-      }
+      };
 
+      $scope.selectItem = function(item) {
+        if (item.type == 'album') {
+          // Selected item is an album
+          var tracks = item.info.tracks.items;
+          nowPlayingService.setTracks(tracks);
+        }
+      };
     })
 })();

@@ -6,9 +6,11 @@
   </div>
 </div>
 <div ng-repeat=" item in results " class="search-results clearfix" ng-if="searchTerm">
-  <img src="{{item.images[1].url}} " alt="image caption ">
-  <div class="content">
-    <p class="albums">{{item.name}}</p>
-    <p class="artists">{{item.info.artists[0].name}}</p>
+  <div ng-click="selectItem(item)">
+    <img src="{{item.images[1].url}} " alt="image caption ">
+    <div class="content">
+      <p class="albums">{{item.name}}</p>
+      <p class="artists">{{item.info.artists[0].name}}</p>
+    </div>
   </div>
 </div>
