@@ -1,10 +1,10 @@
 <div class="now-playing" ng-class="{'open': playerOpen}" ng-click="playerOpen = !playerOpen">
   <div class="top">
-    <p>Song name - Artist</p>
+    <p>{{trackString}}</p>
     <div class="controls">
-      <i class="fa fa-chevron-left"></i>
+      <i class="fa fa-chevron-left" ng-click="previousTrack()"></i>
       <i class="fa fa-play"></i>
-      <i class="fa fa-chevron-right"></i>
+      <i class="fa fa-chevron-right" ng-click="nextTrack()"></i>
     </div>
   </div>
   <div class="bottom">asd
