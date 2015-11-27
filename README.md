@@ -1,4 +1,4 @@
-# Spotify Touchy
+# Spotify Touch
 
 Install dependencies: 
 
