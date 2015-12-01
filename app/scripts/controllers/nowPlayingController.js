@@ -38,11 +38,11 @@
         $scope.trackString = artistName + ' - ' + trackName;
       };
 
-      $scope.onSwipeUp = function() {
+      $scope.onSwipeUp = function(evt) {
         $scope.playerOpen = true;
       };
 
-      $scope.onSwipeDown = function() {
+      $scope.onSwipeDown = function(evt) {
         $scope.playerOpen = false;
       };
     });
