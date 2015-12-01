@@ -16,18 +16,49 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     });
 });
 
-app.controller('AppController', function ($scope, Auth, $location) {
+app.controller('AppController', function ($scope, Auth, $location, spotifyService, spotifyFactory) {
   $scope.playing = true;
   console.log('in AppController');
 
   console.log(location);
 
-  window.addEventListener("message", function (event) {
+  /*function checkUser(redirectToLogin) {
+    // this doesn't work for login
+      spotifyService.userInformation().$promise.then(function(userInfo) {
+        Auth.setUsername(userInfo.id);
+        Auth.setUserCountry(userInfo.country);
+        if (redirectToLogin) {
+          $scope.$emit('login');
+        }
+      }, function(err) {
+        $scope.$emit('login');
+      });
+  }*/
+
+  function checkUser(redirectToLogin) {
+    spotifyFactory.userInformation().then(function(userInfo) {
+      Auth.setUsername(userInfo.id);
+      Auth.setUserCountry(userInfo.country);
+      if (redirectToLogin) {
+        $scope.$emit('login');
+        $location.replace();
+      }
+    }, function(err) {
+      $scope.showplayer = false;
+      $scope.showlogin = true;
+      $location.replace();
+    });
+  }
+
+
+  window.addEventListener("message", function(event) {
     console.log('got postmessage', event);
     var hash = JSON.parse(event.data);
     if (hash.type == 'access_token') {
       Auth.setAccessToken(hash.access_token, hash.expires_in || 60);
-      // checkUser(true);
+        
+      checkUser(true);
+
     }
   }, false);
 
@@ -35,20 +66,23 @@ app.controller('AppController', function ($scope, Auth, $location) {
   $scope.showplayer = $scope.isLoggedIn;
   $scope.showlogin = !$scope.isLoggedIn;
 
-  console.log('showlogin:' + $scope.showlogin);
-  console.log('showplayer:' + $scope.showplayer);
-
-  $scope.$on('login', function () {
+  $scope.$on('login', function() {
     $scope.showplayer = true;
     $scope.showlogin = false;
-    $location.path('/search');
+    $location.replace('/search');
   });
 
-  $scope.$on('logout', function () {
+  $scope.$on('logout', function() {
     $scope.showplayer = false;
     $scope.showlogin = true;
-    $location.path('/');
   });
+
+
+  if ($scope.isLoggedIn) {
+    checkUser();  
+  }
+    
+
 
 });
 

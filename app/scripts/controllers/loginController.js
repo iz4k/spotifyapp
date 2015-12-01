@@ -24,14 +24,12 @@
       console.log('do login...');
 
       Auth.openLogin();
-      $scope.$emit('login');
+      //$scope.$emit('login');
       // $state.go('playlist');
     }
 
     $scope.logout = function() {
       console.log('do logout...');
-        $scope.showplayer = false;
-        $scope.showlogin = true;
         Auth.deleteUserInfo();
         $scope.$emit('logout');
 

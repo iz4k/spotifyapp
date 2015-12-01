@@ -22,6 +22,9 @@
           method: 'GET'
         },
         userInformation: {
+          /* This doesn't work on login. It doesn't put the Accesstoken 
+            to the header for some reason. It works after login though, wtf.
+          */
           url: 'https://api.spotify.com/v1/me',
           method: 'GET',
           headers: {
@@ -33,6 +36,9 @@
           method: 'GET',
           params: {
             userid: '@userid'
+          },
+          headers: {
+            'Authorization': 'Bearer ' + Auth.getAccessToken()  
           }
         }
       });

@@ -30,6 +30,7 @@
 			openLogin: function() {
 				var url = getLoginURL([
 					'user-read-private',
+					'playlist-read-collaborative',
 					'playlist-read-private',
 					'playlist-modify-public',
 					'playlist-modify-private',
