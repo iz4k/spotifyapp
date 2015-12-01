@@ -1,4 +1,4 @@
-var app = angular.module('spotifyApp', ['ui.router', 'ngResource']);
+var app = angular.module('spotifyApp', ['ui.router', 'ngResource', 'hmTouchEvents']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
