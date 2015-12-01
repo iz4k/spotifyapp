@@ -16,6 +16,7 @@
 
       $scope.nextTrack = function() {
         $scope.trackIndex = ($scope.trackIndex + 1) % $scope.tracks.length;
+        updateTrackString();
       };
 
       $scope.previousTrack = function() {
@@ -24,6 +25,7 @@
           temp = temp + $scope.tracks.length;
         }
         $scope.trackIndex = temp % $scope.tracks.length;
+        updateTrackString();
       };
 
       var updateTrackString = function() {
@@ -34,6 +36,14 @@
         var artistName = $scope.tracks[$scope.trackIndex].artists[0].name;
         var trackName = $scope.tracks[$scope.trackIndex].name;
         $scope.trackString = artistName + ' - ' + trackName;
+      };
+
+      $scope.onSwipeUp = function() {
+        $scope.playerOpen = true;
+      };
+
+      $scope.onSwipeDown = function() {
+        $scope.playerOpen = false;
       };
     });
 })();
