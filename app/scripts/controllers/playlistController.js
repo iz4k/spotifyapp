@@ -2,7 +2,7 @@
 
   angular
     .module('spotifyApp')
-    .controller('playlistController', function (spotifyService, $scope, $log) {
+    .controller('playlistController', function (spotifyService, spotifyFactory, Auth, $scope, $log) {
       //      $scope.searchType = 'Album';
       //      $scope.selectedAlbum = '';
       //      $scope.results = [];
@@ -15,6 +15,7 @@
       //        });
       //      };
       $log.debug('in playlist controller');
+      /*
       spotifyService.userInformation().$promise.then(function (data) {
         console.log('userdata', data);
         spotifyService.getPlaylists({
@@ -23,5 +24,14 @@
           console.log(data2, 'afte playlists');
         })
       });
+      
+      */
+
+      spotifyFactory.getPlaylists(Auth.getUsername()).then(function(data){
+        console.log(data);
+        $scope.results = data;
+      });
+
+
     })
 })();

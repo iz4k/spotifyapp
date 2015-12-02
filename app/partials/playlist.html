@@ -1,1 +1,11 @@
-<p>gief playlists</p>
+
+<div class="playlists">
+	<div ng-repeat="playlist in results" class="playlist">
+
+		<img class="playlist-thumbnail" alt="no image" src="{{playlist.images[0].url}}">
+
+
+		<p class="title">{{playlist.name}}</p>
+
+	</div>
+</div>

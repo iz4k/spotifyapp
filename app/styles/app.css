@@ -268,3 +268,44 @@ body {
 .now-playing .controls i:first-child {
   margin-left: 0;
 }
+
+
+
+
+
+.playlists {
+  margin-top: 50px;
+}
+
+.playlists .playlist {
+  padding: 1%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top:1%;
+  margin-bottom: 1%;
+  background: #757575;
+  border: 1px solid #757575;
+  color: #d1d1d1;
+}
+
+.playlists .playlist * {
+  display: inline-block;
+  vertical-align: middle;
+  
+}
+
+.playlists .playlist .playlist-thumbnail {
+  width:20%;
+  
+}
+
+.playlists .playlist .title {
+  width: 70%;
+  //font-weight: bold;
+  font-size: 1em;
+  //text-align: center;
+  word-wrap: break-word;
+
+}
+
