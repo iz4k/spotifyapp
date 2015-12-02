@@ -3,10 +3,10 @@
     <p>{{trackString}}</p>
     <div class="controls">
       <i class="fa fa-chevron-left" hm-tap="previousTrack"></i>
-      <i class="fa fa-play"></i>
+      <i class="fa fa-play" ng-class="{'fa-pause': currentlyPlaying, 'fa-play': !currentlyPlaying}" hm-tap="togglePlaying"></i>
       <i class="fa fa-chevron-right" hm-tap="nextTrack"></i>
     </div>
   </div>
-  <div class="bottom">asd
+  <div class="bottom">
   </div>
 </div>
