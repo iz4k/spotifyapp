@@ -14,17 +14,22 @@
 
       $scope.openPlaylist = function(playlist_id, user_id){
         console.log(playlist_id);
-        spotifyFactory.getPlaylist(user_id, playlist_id).then(function(data){
-          console.log('Got playlist:\n');
-          console.log(data);
-          if ($scope.clicked_list == playlist_id) {
-            // if the previous click was this element -> hide it.
-            $scope.clicked_list = "";  
-          } else {
-            $scope.clicked_list = playlist_id;  
-          }          
-          $scope.playlistdata = data;
-        });
+
+        if ($scope.clicked_list == playlist_id) {
+          // if the previous click was this element -> hide it.
+          $scope.clicked_list = "";  
+        } else {
+          // not necessary to fetch the data for element closing click.
+          $scope.clicked_list = playlist_id;
+          spotifyFactory.getPlaylist(user_id, playlist_id).then(function(data){
+            console.log('Got playlist:\n');
+            console.log(data);
+                    
+            $scope.playlistdata = data;
+          });  
+        }
+
+        
       }
 
 
