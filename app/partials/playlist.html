@@ -1,11 +1,20 @@
 
 <div class="playlists">
-	<div ng-repeat="playlist in results" class="playlist">
+	<div ng-repeat="playlist in results" class="playlist" >
 
+		<div class="playlist-header" ng-click="openPlaylist(playlist.id, playlist.owner.id)">
 		<img class="playlist-thumbnail" alt="no image" src="{{playlist.images[0].url}}">
 
-
 		<p class="title">{{playlist.name}}</p>
+		</div>
+
+		<div class="tracks" ng-if="clicked_list == playlist.id">
+			<div ng-repeat="song in playlistdata.tracks.items" class="track">
+			<p><i class="fa fa-play-circle-o"></i> {{song.track.name}}</p>
+			</div>
+		</div>
 
 	</div>
 </div>
+
+

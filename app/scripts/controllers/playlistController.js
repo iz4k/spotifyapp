@@ -3,34 +3,29 @@
   angular
     .module('spotifyApp')
     .controller('playlistController', function (spotifyService, spotifyFactory, Auth, $scope, $log) {
-      //      $scope.searchType = 'Album';
-      //      $scope.selectedAlbum = '';
-      //      $scope.results = [];
-      //      $scope.search = function () {
-      //        spotifyService.getResults({
-      //          q: $scope.searchTerm,
-      //          type: $scope.searchType
-      //        }).$promise.then(function (data) {
-      //          $scope.results = data.albums.items;
-      //        });
-      //      };
-      $log.debug('in playlist controller');
-      /*
-      spotifyService.userInformation().$promise.then(function (data) {
-        console.log('userdata', data);
-        spotifyService.getPlaylists({
-          userid: data.id
-        }).$promise.then(function (data2) {
-          console.log(data2, 'afte playlists');
-        })
-      });
       
-      */
+      $log.debug('in playlist controller');
+    
 
       spotifyFactory.getPlaylists(Auth.getUsername()).then(function(data){
         console.log(data);
         $scope.results = data;
       });
+
+      $scope.openPlaylist = function(playlist_id, user_id){
+        console.log(playlist_id);
+        spotifyFactory.getPlaylist(user_id, playlist_id).then(function(data){
+          console.log('Got playlist:\n');
+          console.log(data);
+          if ($scope.clicked_list == playlist_id) {
+            // if the previous click was this element -> hide it.
+            $scope.clicked_list = "";  
+          } else {
+            $scope.clicked_list = playlist_id;  
+          }          
+          $scope.playlistdata = data;
+        });
+      }
 
 
     })

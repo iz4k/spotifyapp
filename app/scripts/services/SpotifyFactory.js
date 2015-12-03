@@ -75,6 +75,20 @@
         });
         return ret.promise;
       },
+
+      getPlaylist: function(username, playlist) {
+        var ret = $q.defer();
+        $http.get(baseUrl + '/users/' + encodeURIComponent(username) + '/playlists/' + encodeURIComponent(playlist), {
+          headers: {
+            'Authorization': 'Bearer ' + Auth.getAccessToken()
+          }
+        }).success(function(r) {
+          ret.resolve(r);
+        });
+        return ret.promise;
+      },
+
+
     }   
      
   });
