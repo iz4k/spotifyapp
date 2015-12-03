@@ -11,7 +11,7 @@
       $scope.currentlyPlaying = false;
       var audio = new Audio();
 
-      $scope.$on('tracksUpdated', function() {
+      $scope.$on('tracksUpdated', function () {
         $scope.tracks = nowPlayingService.getTracks();
         $scope.trackIndex = 0;
         // Pause audio when track list is updated
@@ -21,7 +21,7 @@
         updateTrackString();
       });
 
-      $scope.nextTrack = function() {
+      $scope.nextTrack = function () {
         $scope.trackIndex = ($scope.trackIndex + 1) % $scope.tracks.length;
         audio.src = $scope.tracks[$scope.trackIndex].preview_url;
         if ($scope.currentlyPlaying)
@@ -29,7 +29,7 @@
         updateTrackString();
       };
 
-      $scope.previousTrack = function() {
+      $scope.previousTrack = function () {
         var temp = $scope.trackIndex - 1;
         if (temp < 0) {
           temp = temp + $scope.tracks.length;
@@ -41,7 +41,7 @@
         updateTrackString();
       };
 
-      var updateTrackString = function() {
+      var updateTrackString = function () {
         if ($scope.tracks == {}) {
           $scope.trackString = '';
         }
@@ -51,15 +51,20 @@
         $scope.trackString = artistName + ' - ' + trackName;
       };
 
-      $scope.onSwipeUp = function(evt) {
+      $scope.onSwipeUp = function () {
         $scope.playerOpen = true;
+        var e = angular.element(document.querySelector('body'));
+        e.addClass('stopscroll');
       };
 
-      $scope.onSwipeDown = function(evt) {
+      $scope.onSwipeDown = function () {
         $scope.playerOpen = false;
+
+        var e = angular.element(document.querySelector('body'));
+        e.removeClass('stopscroll');
       };
 
-      $scope.togglePlaying = function() {
+      $scope.togglePlaying = function () {
         if ($scope.currentlyPlaying) {
           pauseSong();
         } else {
@@ -67,17 +72,18 @@
         }
       };
 
-      var playSong = function() {
+
+      var playSong = function () {
         audio.play();
         $scope.currentlyPlaying = true;
       };
 
-      var pauseSong = function() {
+      var pauseSong = function () {
         audio.pause();
         $scope.currentlyPlaying = false;
       };
 
-      var resetSongPosition = function() {
+      var resetSongPosition = function () {
         pauseSong();
         audio.src = $scope.tracks[$scope.trackIndex].preview_url;
       };

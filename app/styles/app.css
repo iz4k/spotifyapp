@@ -25,6 +25,10 @@ body {
   clear: both;
 }
 
+.stopscroll {
+  overflow: hidden;
+}
+
 
 /*header*/
 
@@ -271,51 +275,40 @@ body {
 
 .playlists {
   margin-top: 50px;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 }
 
 .playlists .playlist {
- 
   width: 90%;
-  margin: 1% 5% 1% 5%; 
+  margin: 1% 5% 1% 5%;
 }
 
 .playlists .playlist .playlist-header {
   padding: 1%;
   background: #757575;
-  
   color: #d1d1d1;
 }
 
 .playlists .playlist .playlist-header * {
   display: inline-block;
   vertical-align: middle;
-  
 }
 
 .playlists .playlist .playlist-header .playlist-thumbnail {
-  width:20%;
-  
+  width: 20%;
 }
 
 .playlists .playlist .playlist-header .title {
   width: 70%;
-  
   font-size: 1em;
-  
   word-wrap: break-word;
-
 }
 
 .playlists .playlist .tracks {
-  
   padding: 0% 2% 0% 2%;
-  
-
 }
 
 .playlists .playlist .tracks .track {
-  
   margin: 1% 0% 1% 0%;
   font-size: 60%;
   background: #999999;
@@ -324,4 +317,3 @@ body {
   padding-left: 1%;
   padding-right: 1%
 }
-
