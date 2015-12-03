@@ -53,15 +53,10 @@
 
       $scope.onSwipeUp = function () {
         $scope.playerOpen = true;
-        var e = angular.element(document.querySelector('body'));
-        e.addClass('stopscroll');
       };
 
       $scope.onSwipeDown = function () {
         $scope.playerOpen = false;
-
-        var e = angular.element(document.querySelector('body'));
-        e.removeClass('stopscroll');
       };
 
       $scope.togglePlaying = function () {
@@ -72,6 +67,15 @@
         }
       };
 
+      $scope.disableBackgroundScrolling = function () {
+        var e = angular.element(document.querySelector('body'));
+        e.addClass('stopscroll');
+      };
+
+      $scope.enableBackgroundScrolling = function () {
+        var e = angular.element(document.querySelector('body'));
+        e.removeClass('stopscroll');
+      };
 
       var playSong = function () {
         audio.play();

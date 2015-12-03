@@ -1,4 +1,4 @@
-<div class="now-playing" ng-class="{'open': playerOpen}" hm-swipeup="onSwipeUp" hm-swipedown="onSwipeDown">
+<div class="now-playing" ng-class="{'open': playerOpen}" hm-swipeup="onSwipeUp" hm-swipedown="onSwipeDown" hm-panstart="disableBackgroundScrolling" hm-panend="enableBackgroundScrolling" hm-pancancel="enableBackgroundScrolling">
   <div class="top">
     <p>{{trackString}}</p>
     <div class="controls">
