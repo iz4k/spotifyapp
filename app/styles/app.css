@@ -60,14 +60,7 @@ body {
   transform: translateY(-70%);
   left: 0;
   height: 290px;
-  transition: ease-in 0.25s all;
   z-index: 999;
-}
-
-#side-navigation.open {
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
 }
 
 #side-navigation ul {

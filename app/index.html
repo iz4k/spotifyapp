@@ -35,7 +35,7 @@
 
   <h1 class="header"><i class="fa fa-spotify fa-lg"></i>Spotify Touch</h1>
   <div ng-show="showplayer">
-    <div id="side-navigation" ng-controller="navController" ng-click="openNav()" ng-class="{'open': navOpen}">
+    <div id="side-navigation" ng-controller="navController" hm-panmove="touchMove" hm-panend="touchEnd">
       <ul>
         <li ui-sref="search"><i class="fa fa-search fa-lg"></i>Search</li>
         <li ui-sref="playlist"><i class="fa fa-list fa-lg"></i>Playlists</li>
