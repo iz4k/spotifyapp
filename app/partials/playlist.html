@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="tracks" ng-if="clicked_list == playlist.id">
-			<div ng-repeat="song in playlistdata.tracks.items" class="track">
+			<div ng-repeat="song in playlistdata.tracks.items" class="track" ng-click="openPlayer()">
 			<p><i class="fa fa-play-circle-o"></i> {{song.track.name}}</p>
 			</div>
 		</div>

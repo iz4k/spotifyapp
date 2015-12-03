@@ -33,5 +33,10 @@
       }
 
 
+      $scope.openPlayer = function(playlist_id) {
+        console.log('Opentrackplayer!');
+      }
+
+
     })
 })();
