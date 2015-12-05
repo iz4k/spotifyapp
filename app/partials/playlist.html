@@ -1,20 +1,29 @@
 
 <div class="playlists">
-	<div ng-repeat="playlist in results" class="playlist" >
+  <!-- <p ng-if="playlist_opened == true">Swipe right to delete song</p>-->
+  <div ng-repeat="playlist in results" class="playlist" >
 
-		<div class="playlist-header" ng-click="openPlaylist(playlist.id, playlist.owner.id)">
-		<img class="playlist-thumbnail" alt="no image" src="{{playlist.images[0].url}}">
+    <div class="playlist-header" ng-click="openPlaylist(playlist.id, playlist.owner.id)">
+      <img class="playlist-thumbnail" alt="no image" src="{{playlist.images[0].url}}">
 
-		<p class="title">{{playlist.name}}</p>
-		</div>
+      <p class="title">{{playlist.name}}</p>
+    </div>
 
-		<div class="tracks" ng-if="clicked_list == playlist.id">
-			<div ng-repeat="song in playlistdata.tracks.items" class="track" ng-click="openPlayer()">
-			<p><i class="fa fa-play-circle-o"></i> {{song.track.name}}</p>
-			</div>
-		</div>
+    <div class="tracks" ng-if="clicked_list == playlist.id">
+      <div class="track" 
+        ng-repeat="item in playlistdata.tracks.items"  
+        hm-tap="trackTap(playlistdata.tracks.items, item.track)"
+        hm-swipeleft="trackSwipeLeft(item.track)"
+        hm-swiperight="trackSwipeRight(item.track, $index)"
+        id="track_{{item.track.id}}"
+        >
+        
 
-	</div>
+        <p><i class="fa fa-play-circle-o"></i> {{item.track.name}}</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 
