@@ -92,6 +92,34 @@
       $scope.trackString = artistName + ' - ' + trackName;
     };
 
+    $scope.touchMove = function (event) {
+      var element = angular.element(document.querySelector('.now-playing'));
+      element.css({
+        'transition': 'none'
+      });
+
+      var windowHeight = window.innerHeight;
+      // Multiplier must match app.css height for .now-playing
+      var nowPlayingTotalHeight = 0.6 * windowHeight;
+      var y = event.center.y;
+      var height = 80 - 100 * (windowHeight - y) / nowPlayingTotalHeight;
+      if (height > 80) {
+        height = 80;
+      } else if (height < 0) {
+        height = 0;
+      }
+      element.css({
+        'transform': 'translateY(' + height + '%)'
+      });
+    };
+
+    $scope.touchEnd = function (event) {
+      var element = angular.element(document.querySelector('.now-playing'));
+      var y = event.center.y;
+      var windowHeight = window.innerHeight;
+    };
+
+    /*
     $scope.onSwipeUp = function () {
       $scope.playerOpen = true;
     };
@@ -99,6 +127,7 @@
     $scope.onSwipeDown = function () {
       $scope.playerOpen = false;
     };
+    */
 
     $scope.togglePlaying = function () {
       if ($scope.currentlyPlaying) {
