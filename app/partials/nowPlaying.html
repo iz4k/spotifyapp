@@ -2,9 +2,9 @@
   <div class="top" hm-panstart="disableBackgroundScrolling" hm-panmove="touchMove" hm-panend="touchEnd" hm-pancancel="touchEnd">
     <p>{{trackString}}</p>
     <div class="controls">
-      <i class="fa fa-chevron-left" hm-tap="previousTrack"></i>
-      <i class="fa fa-play" ng-class="{'fa-pause': currentlyPlaying, 'fa-play': !currentlyPlaying}" hm-tap="togglePlaying"></i>
-      <i class="fa fa-chevron-right" hm-tap="nextTrack"></i>
+      <i class="fa fa-step-backward" hm-tap="previousTrack"></i>
+      <i class="fa fa-play-circle-o" ng-class="{'fa-pause': currentlyPlaying, 'fa-play': !currentlyPlaying}" hm-tap="togglePlaying"></i>
+      <i class="fa fa-step-forward" hm-tap="nextTrack"></i>
     </div>
   </div>
   <div class="bottom">

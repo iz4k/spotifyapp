@@ -226,7 +226,7 @@
   height: 60%;
   width: 100%;
   //background-color: #2E6121;
-  background-color:#757575; 
+  background-color:#333; 
   bottom: 0;
   overflow-y: hidden;
   transform: translateY(80%);
@@ -261,18 +261,15 @@
 }
 
 .now-playing .controls {
-  width: 40%;
+  width: 60%;
+  font-size: 150%;
   margin: auto;
   text-align: center;
   color: #fff;
 }
 
 .now-playing .controls i {
-  margin-left: 20px;
-}
-
-.now-playing .controls i:first-child {
-  margin-left: 0;
+  margin: 0% 12% 0% 12%;
 }
 
 .playlists {
