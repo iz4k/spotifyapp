@@ -232,10 +232,6 @@
   transition: ease-in 0.25s all;
 }
 
-.now-playing.open {
-  transform: translateY(0);
-}
-
 .now-playing .top {
   height: 20%;
 }

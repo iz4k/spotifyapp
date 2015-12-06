@@ -3,7 +3,6 @@
   angular
   .module('spotifyApp')
   .controller('nowPlayingController', function ($scope, $log, nowPlayingService) {
-    $scope.playerOpen = false;
     $scope.tracks = [];
     $scope.trackIndex = 0;
     $scope.trackString = '';
@@ -111,7 +110,6 @@
       element.css({
         'transform': 'translateY(' + height + '%)'
       });
-      $log.log(height);
     };
 
     $scope.touchEnd = function (event) {
