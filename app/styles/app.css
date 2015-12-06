@@ -225,7 +225,8 @@
   position: fixed;
   height: 60%;
   width: 100%;
-  background-color: #2E6121;
+  //background-color: #2E6121;
+  background-color:#757575; 
   bottom: 0;
   overflow-y: hidden;
   transform: translateY(80%);
