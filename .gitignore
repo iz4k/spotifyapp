@@ -3,4 +3,4 @@ node_modules/
 **/.DS_Store
 app/bower_components/
 bower_components/
-tmux-client-*.log
+*.log
