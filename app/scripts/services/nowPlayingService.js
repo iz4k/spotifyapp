@@ -2,12 +2,12 @@
   angular.module('spotifyApp')
     .service('nowPlayingService', function ($rootScope) {
       this.tracks = [];
-      this.isplaylist = false;
+      this.isPlaylist = false;
       this.trackindex = 0;
 
-      this.setTracks = function(tracks, isplaylist, trackindex) {
+      this.setTracks = function(tracks, isPlaylist, trackindex) {
         this.tracks = tracks;
-        this.isplaylist = isplaylist;
+        this.isPlaylist = isPlaylist;
         this.trackindex = trackindex
         $rootScope.$broadcast('tracksUpdated');
       };
@@ -17,7 +17,7 @@
       };
       
       this.getListType = function() {
-        return this.isplaylist;
+        return this.isPlaylist;
       }
 
       this.getTrackIndex = function() {

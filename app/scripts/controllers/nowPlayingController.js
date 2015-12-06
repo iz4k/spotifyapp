@@ -6,7 +6,7 @@
     $scope.tracks = [];
     $scope.trackIndex = 0;
     $scope.trackString = '';
-    $scope.isplaylist = false;
+    $scope.isPlaylist = false;
     $scope.trackImage = '';
 
     $scope.currentlyPlaying = false;
@@ -14,12 +14,12 @@
 
     $scope.$on('tracksUpdated', function () {
       $scope.tracks = nowPlayingService.getTracks();
-      $scope.isplaylist = nowPlayingService.getListType();
+      $scope.isPlaylist = nowPlayingService.getListType();
       $scope.trackIndex = nowPlayingService.getTrackIndex();
       // Pause audio when track list is updated
       pauseSong();
       resetSongPosition();
-      if ($scope.isplaylist) {
+      if ($scope.isPlaylist) {
         audio.src = $scope.tracks[$scope.trackIndex].track.preview_url;
       } 
       else {
@@ -30,7 +30,7 @@
 
     $scope.nextTrack = function () {
       $scope.trackIndex = ($scope.trackIndex + 1) % $scope.tracks.length;
-      if ($scope.isplaylist) {
+      if ($scope.isPlaylist) {
         audio.src = $scope.tracks[$scope.trackIndex].track.preview_url;
       } 
       else {
@@ -50,7 +50,7 @@
       }
       $scope.trackIndex = temp % $scope.tracks.length;
 
-      if ($scope.isplaylist) {
+      if ($scope.isPlaylist) {
         audio.src = $scope.tracks[$scope.trackIndex].track.preview_url;
       } 
       else {
@@ -74,7 +74,7 @@
         $scope.trackImage = '';
       }
 
-      if ($scope.isplaylist) {
+      if ($scope.isPlaylist) {
         var artistName = $scope.tracks[$scope.trackIndex].track.artists[0].name;
         var trackName = $scope.tracks[$scope.trackIndex].track.name;
         $scope.trackImage = $scope.tracks[$scope.trackIndex].track.album.images[0].url;
@@ -167,7 +167,7 @@
     var resetSongPosition = function () {
       pauseSong();
 
-      if ($scope.isplaylist) {
+      if ($scope.isPlaylist) {
         audio.src = $scope.tracks[$scope.trackIndex].track.preview_url;
       } 
       else {
