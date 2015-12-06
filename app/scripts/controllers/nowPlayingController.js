@@ -163,5 +163,38 @@
         audio.src = $scope.tracks[$scope.trackIndex].preview_url;
       }
     };
+
+    $scope.trackSwipeRight = function() {
+      // this to do the previous song
+      console.log("Doing swiperight");
+      
+      var element = angular.element(document.querySelector('#track_'+$scope.trackIndex));
+      
+     element.addClass('previous-track-animation').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+        element.removeClass('previous-track-animation');
+        $scope.previousTrack();
+        $scope.$apply();
+      });
+
+
+
+    }
+
+    $scope.trackSwipeLeft = function() {
+      // this to do the next song
+     
+     console.log("Doing swipeleft"); 
+      
+       
+      var element = angular.element(document.querySelector('#track_'+$scope.trackIndex));
+      
+     element.addClass('next-track-animation').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+        element.removeClass('next-track-animation');
+        $scope.nextTrack();
+        $scope.$apply();
+      });
+ 
+    }
+
   });
 })();
