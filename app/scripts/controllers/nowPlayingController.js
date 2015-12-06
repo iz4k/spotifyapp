@@ -70,7 +70,8 @@
 
       if ($scope.isPlaylist) {
         var artistName = $scope.tracks[$scope.trackIndex].track.artists[0].name;
-        var trackName = $scope.tracks[$scope.trackIndex].track.name;
+        var trackName = $scope.tracks[$scope.trackIndex].track.name;      
+        $scope.trackImage = $scope.tracks[$scope.trackIndex].track.album.images[0].url;
 
       }
       else {
