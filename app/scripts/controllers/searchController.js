@@ -30,8 +30,9 @@
         if (item.type == 'album') {
           // Selected item is an album
           var tracks = item.info.tracks.items;
-          console.log(tracks);
           nowPlayingService.setTracks(tracks, false, 0);
+        } else if (item.type == 'artist') {
+          // TODO: Handle artist search
         }
       };
     })
