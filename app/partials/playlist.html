@@ -7,7 +7,7 @@
 -->
 <div class="playlists">
     <!-- <p ng-if="playlist_opened == true">Swipe right to delete song</p>-->
-    <div ng-repeat="playlist in results" class="playlist" >
+    <div ng-repeat="playlist in results" id="playlist_{{playlist.id}}"  class="playlist" hm-press="playlistPress(playlist, $index)" >
 
         <div class="playlist-header" 
             hm-tap="openPlaylist(playlist.id, playlist.owner.id)">
