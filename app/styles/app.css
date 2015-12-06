@@ -137,7 +137,7 @@
     .search-input:focus {
         outline: none;
     }
-
+    
     .type-selector {
         text-align: center;
     }
@@ -153,6 +153,10 @@
 
     .type-selector .selected {
         background-color: #333;
+    }
+
+    .search-results-container {
+        margin-bottom: 25%;
     }
 
     .search-results {
@@ -274,7 +278,7 @@
 
 .playlists {
     margin-top: 5%;
-    margin-bottom: 100px;
+    margin-bottom: 25%;
 }
 
 .playlists .playlist {
