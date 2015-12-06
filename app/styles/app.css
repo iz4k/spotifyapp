@@ -299,6 +299,7 @@
 
 .playlists .playlist .tracks {
   padding: 0% 2% 0% 2%;
+  transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
 }
 
 .playlists .playlist .tracks .track {
@@ -312,6 +313,7 @@
   padding-top: 2%;
   padding-bottom: 2%;
 }
+
 
 .removed-track {
   animation: removed-track-animation .8s cubic-bezier(.65,-0.02,.72,.29);
@@ -336,7 +338,6 @@
   100% {
     opacity: 0;
     transform: translateX(-800px);
-    display: hide;
   }
 }
 

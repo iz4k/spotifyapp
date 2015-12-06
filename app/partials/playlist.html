@@ -12,7 +12,7 @@
     <div class="tracks" ng-if="clicked_list == playlist.id">
       <div class="track" 
         ng-repeat="item in playlistdata.tracks.items"  
-        hm-tap="trackTap(playlistdata.tracks.items, item.track)"
+        hm-tap="trackTap(playlistdata.tracks.items, $index)"
         hm-swipeleft="trackSwipeLeft(item.track)"
         hm-swiperight="trackSwipeRight(item.track, $index)"
         id="track_{{item.track.id}}"

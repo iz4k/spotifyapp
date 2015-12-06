@@ -33,10 +33,9 @@
 
     }
 
-    $scope.trackTap = function(tracks, track) {
-      console.log('Track "' + track.name + '" tapped');
-      console.log('Use this to play the song'); 
-      console.log(tracks);
+    $scope.trackTap = function(tracks, trackindex) {
+      nowPlayingService.setTracks(tracks, true, trackindex); 
+      //console.log(tracks);
     }
 
 
@@ -52,11 +51,11 @@
       element.addClass('removed-track').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
         
         console.log('Removing "' +track.name + '"')
-
+        
+        // This is done to prevent there being conflicting indices between this scope and the server model
         $scope.playlistdata.tracks.items.splice(position, 1);
-        $scope.$apply();
+        $scope.$apply(); // Applies the changes made to the scope
    
-        //this.remove();
 
         console.log('username: ' + Auth.getUsername());
         console.log('playlist: ' + $scope.playlistdata.id);
