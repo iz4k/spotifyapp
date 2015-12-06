@@ -2,87 +2,89 @@
 <html lang="en">
 
 <head>
-  <title>Spotify Touch</title>
+<title>Spotify Touch</title>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
 
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
-  <link rel="stylesheet" href="styles/app.css" />
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+<link rel="stylesheet" href="styles/app.css" />
 
-  <style type="text/css">
-    /**
-         * Hide when Angular is not yet loaded and initialized
-         */
-    
-    [ng\:cloak],
-    [ng-cloak],
-    [data-ng-cloak],
-    [x-ng-cloak],
-    .ng-cloak,
-    .x-ng-cloak {
-      display: none !important;
-    }
-  </style>
+<style type="text/css">
+/**
+ * Hide when Angular is not yet loaded and initialized
+ */
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+</style>
 
 </head>
 
 <body ng-app="spotifyApp" ng-controller="AppController" ng-cloak>
 
-  <h1 class="header"><i class="fa fa-spotify fa-lg"></i>Spotify Touch</h1>
-  <div ng-show="showplayer">
-    <div id="side-navigation" ng-controller="navController" hm-panmove="touchMove" hm-panend="touchEnd">
-      <ul>
-        <li ui-sref="search"><i class="fa fa-search fa-lg"></i>Search</li>
-        <li ui-sref="playlist"><i class="fa fa-list fa-lg"></i>Playlists</li>
-        <li><i class="fa fa-wheelchair fa-lg"></i>Browse</li>
-        <li ng-controller="loginController" ng-click="logout()"><i class="fa fa-sign-out fa-lg fa-rotate-180"></i>Logout</li>
-      </ul>
-      <!--    <span class="menu-text">Menu</span>-->
-      <span class="fa fa-arrow-down"></span>
-    </div>
+<h1 class="header"><i class="fa fa-spotify fa-lg"></i>Spotify Touch</h1>
+<div ng-show="showplayer">
+  <div id="side-navigation" ng-controller="navController" hm-panmove="touchMove" hm-panend="touchEnd">
+    <ul>
+      <li ui-sref="search"><i class="fa fa-search fa-lg"></i>Search</li>
+      <li ui-sref="playlist"><i class="fa fa-list fa-lg"></i>Playlists</li>
+      
+      <!-- <li><i class="fa fa-wheelchair fa-lg"></i>Browse</li>-->
 
-    <div ui-view>
-    </div>
-    <now-playing></now-playing>
+      <li ng-controller="loginController" ng-click="logout()"><i class="fa fa-sign-out fa-lg fa-rotate-180"></i>Logout</li>
+    </ul>
+    <!--    <span class="menu-text">Menu</span>-->
+    <span class="fa fa-arrow-down"></span>
   </div>
 
-  <div ng-show="showlogin">
-    <div ng-controller="loginController">
-      <div class="login-form">
-        <a ng-click="login()">Login</a>
-      </div>
+  <div ui-view>
+  </div>
+  <now-playing></now-playing>
+</div>
+
+<div ng-show="showlogin">
+  <div ng-controller="loginController">
+    <div class="login-form">
+      <a ng-click="login()">Login</a>
     </div>
   </div>
+</div>
 
 
 
-  <!--bower components-->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/hammerjs/hammer.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/AngularHammer/angular.hammer.js"></script>
+<!--bower components-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/hammerjs/hammer.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/AngularHammer/angular.hammer.js"></script>
 
-  <!--scripts-->
-  <script src="app.js"></script>
-  <script src="scripts/controllers/loginController.js"></script>
-  <script src="scripts/controllers/playlistController.js"></script>
-  <script src="scripts/controllers/navigationController.js"></script>
-  <script src="scripts/controllers/searchController.js"></script>
-  <script src="scripts/controllers/nowPlayingController.js"></script>
-  <script src="scripts/services/nowPlayingService.js"></script>
-  <script src="scripts/services/SpotifyService.js"></script>
-  <script src="scripts/services/auth.js"></script>
-  <script src="scripts/services/SpotifyFactory.js"></script>
-  <script src="scripts/directives/nowPlayingDirective.js"></script>
+<!--scripts-->
+<script src="app.js"></script>
+<script src="scripts/controllers/loginController.js"></script>
+<script src="scripts/controllers/playlistController.js"></script>
+<script src="scripts/controllers/navigationController.js"></script>
+<script src="scripts/controllers/searchController.js"></script>
+<script src="scripts/controllers/nowPlayingController.js"></script>
+<script src="scripts/services/nowPlayingService.js"></script>
+<script src="scripts/services/SpotifyService.js"></script>
+<script src="scripts/services/auth.js"></script>
+<script src="scripts/services/SpotifyFactory.js"></script>
+<script src="scripts/directives/nowPlayingDirective.js"></script>
 
 </body>
 
