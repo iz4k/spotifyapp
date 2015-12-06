@@ -134,6 +134,8 @@
           'transition': 'ease-in 0.25s all'
         });
       }
+
+      $scope.enableBackgroundScrolling();
     };
 
     /*

@@ -1,4 +1,4 @@
-<div class="now-playing" ng-class="{'open': playerOpen}" hm-panmove="touchMove" hm-panend="touchEnd" hm-pancancel="touchEnd">
+<div class="now-playing" ng-class="{'open': playerOpen}" hm-panstart="disableBackgroundScrolling" hm-panmove="touchMove" hm-panend="touchEnd" hm-pancancel="touchEnd">
   <div ng-show="!playerOpen" class="top">
     <p>{{trackString}}</p>
     <div class="controls">
