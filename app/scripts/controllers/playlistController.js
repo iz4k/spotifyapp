@@ -29,19 +29,16 @@
           $scope.playlistdata = data;
         });  
       }
+    };
 
-
-    }
-
-    $scope.trackTap = function(tracks, trackindex) {
-      nowPlayingService.setTracks(tracks, true, trackindex); 
-      //console.log(tracks);
-    }
+    $scope.trackTap = function(tracks, trackindex, imageUrl) {
+      nowPlayingService.setTracks(tracks, true, trackindex, imageUrl);
+    };
 
 
     $scope.trackSwipeLeft = function(track) {
       console.log('Track "' + track.name + '" swiped left');  
-    }
+    };
 
 
     $scope.trackSwipeRight = function(track, position) {
@@ -66,12 +63,10 @@
           console.log(data);
           console.log('"'+ track.name + '" is really removed');
         });
-
-
       });
       
       console.log('Track "' + track.name + '" swiped right');   
-    }
+    };
 
     
     $scope.createNewPlaylist = function() {
@@ -81,6 +76,6 @@
 
       });
       $scope.newPlaylistName = "";
-    }
+    };
   })
 })();
