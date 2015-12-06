@@ -138,16 +138,6 @@
       $scope.enableBackgroundScrolling();
     };
 
-    /*
-    $scope.onSwipeUp = function () {
-      $scope.playerOpen = true;
-    };
-
-    $scope.onSwipeDown = function () {
-      $scope.playerOpen = false;
-    };
-    */
-
     $scope.togglePlaying = function () {
       if ($scope.currentlyPlaying) {
         pauseSong();
