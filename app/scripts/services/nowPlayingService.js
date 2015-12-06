@@ -4,11 +4,14 @@
       this.tracks = [];
       this.isPlaylist = false;
       this.trackindex = 0;
+      this.imageUrl = '';
 
-      this.setTracks = function(tracks, isPlaylist, trackindex) {
+      this.setTracks = function(tracks, isPlaylist, trackindex, imageUrl) {
         this.tracks = tracks;
         this.isPlaylist = isPlaylist;
         this.trackindex = trackindex
+        // Default value for imageUrl is ''
+        this.imageUrl = typeof imageUrl !== 'undefined' ? imageUrl : '';
         $rootScope.$broadcast('tracksUpdated');
       };
 
@@ -22,6 +25,10 @@
 
       this.getTrackIndex = function() {
         return this.trackindex;
+      }
+
+      this.getImageUrl = function() {
+        return this.imageUrl;
       }
 
     });

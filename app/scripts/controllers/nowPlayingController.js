@@ -14,6 +14,7 @@
 
     $scope.$on('tracksUpdated', function () {
       $scope.tracks = nowPlayingService.getTracks();
+      $log.log($scope.tracks);
       $scope.isPlaylist = nowPlayingService.getListType();
       $scope.trackIndex = nowPlayingService.getTrackIndex();
       // Pause audio when track list is updated
@@ -25,7 +26,7 @@
       else {
         audio.src = $scope.tracks[$scope.trackIndex].preview_url;
       }
-    updateTrackString();
+      updateTrackString();
     });
 
     $scope.nextTrack = function () {
