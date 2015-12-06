@@ -1,4 +1,10 @@
 
+
+<div class="create-playlist-container">
+  <input class="playlist-name" type="text" ng-model="newPlaylistName" placeholder="Playlist name">
+  <a class="create-button" ng-click="createNewPlaylist()">Create</a>  
+</div>
+
 <div class="playlists">
   <!-- <p ng-if="playlist_opened == true">Swipe right to delete song</p>-->
   <div ng-repeat="playlist in results" class="playlist" >
@@ -25,5 +31,7 @@
 
   </div>
 </div>
+
+
 
 

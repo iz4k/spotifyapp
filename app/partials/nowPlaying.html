@@ -1,5 +1,5 @@
 <div class="now-playing" ng-class="{'open': playerOpen}" hm-swipeup="onSwipeUp" hm-swipedown="onSwipeDown" hm-panstart="disableBackgroundScrolling" hm-panend="enableBackgroundScrolling" hm-pancancel="enableBackgroundScrolling">
-  <div class="top">
+  <div ng-show="!playerOpen" class="top">
     <p>{{trackString}}</p>
     <div class="controls">
       <i class="fa fa-chevron-left" hm-tap="previousTrack"></i>
@@ -7,6 +7,18 @@
       <i class="fa fa-chevron-right" hm-tap="nextTrack"></i>
     </div>
   </div>
-  <div class="bottom">
+  <div ng-show="playerOpen" class="bottom">
+    <div class="image-container" ng-if="trackImage != ''"> 
+      <img alt="No image found" ng-src="{{trackImage}}">
+    </div>
+    <div  class="top">
+    <p>{{trackString}}</p>
+    <div class="controls">
+      <i class="fa fa-chevron-left" hm-tap="previousTrack"></i>
+      <i class="fa fa-play" ng-class="{'fa-pause': currentlyPlaying, 'fa-play': !currentlyPlaying}" hm-tap="togglePlaying"></i>
+      <i class="fa fa-chevron-right" hm-tap="nextTrack"></i>
+    </div>
+  </div>
+
   </div>
 </div>

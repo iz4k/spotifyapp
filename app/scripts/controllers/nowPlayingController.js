@@ -8,6 +8,7 @@
     $scope.trackIndex = 0;
     $scope.trackString = '';
     $scope.isplaylist = false;
+    $scope.trackImage = '';
 
     $scope.currentlyPlaying = false;
     var audio = new Audio();
@@ -65,18 +66,28 @@
       updateTrackString();
     };
 
+    
+
+
     var updateTrackString = function () {
       if ($scope.tracks == {}) {
         $scope.trackString = '';
+        $scope.trackImage = '';
       }
 
       if ($scope.isplaylist) {
         var artistName = $scope.tracks[$scope.trackIndex].track.artists[0].name;
         var trackName = $scope.tracks[$scope.trackIndex].track.name;
+        $scope.trackImage = $scope.tracks[$scope.trackIndex].track.album.images[0].url;
+
       }
       else {
         var artistName = $scope.tracks[$scope.trackIndex].artists[0].name;
         var trackName = $scope.tracks[$scope.trackIndex].name;
+        //$scope.trackImage = $scope.tracks[$scope.trackIndex].album.images[0].url;
+        $scope.trackImage = '';
+
+
       }
       $scope.trackString = artistName + ' - ' + trackName;
     };

@@ -108,6 +108,25 @@
       return ret.promise;
     },
 
+    createNewPlaylist: function(playlistname) {
+      var ret = $q.defer();
+      $http.post(baseUrl + '/users/' + encodeURIComponent(Auth.getUsername()) + '/playlists',
+          {
+            data: {
+              name: playlistname,
+              public: true
+            },
+        headers: {
+          'Authorization': 'Bearer ' + Auth.getAccessToken()
+        }
+          }).success(function(r) {
+            console.log('Added a new playlist', r);
+            ret.resolve(r);
+          });
+      return ret.promise;
+    },
+
+
 
     }   
 

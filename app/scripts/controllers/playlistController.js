@@ -73,7 +73,17 @@
       console.log('Track "' + track.name + '" swiped right');   
     }
 
+    
+    $scope.createNewPlaylist = function() {
+      console.log('Creating new playlist: "' + $scope.newPlaylistName  + '"');
+      spotifyFactory.createNewPlaylist($scope.newPlaylistName).then(function(data) {
+        console.log("new playlist created" + data);
 
+      });
+      $scope.newPlaylistName = "";
+
+
+    }
 
 
 

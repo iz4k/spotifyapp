@@ -244,6 +244,18 @@
   height: 80%;
 }
 
+.now-playing .bottom .image-container {
+  width: 80%;
+  margin: 2% 10% 2% 10%;
+}
+
+.now-playing .bottom .image-container img {
+  width: 70%;
+  margin: 2% 15% 2% 15%;
+
+}
+
+
 .now-playing p {
   text-align: center;
   margin: 10px 0;
@@ -267,7 +279,7 @@
 }
 
 .playlists {
-  margin-top: 50px;
+  margin-top: 5%;
   margin-bottom: 100px;
 }
 
@@ -341,3 +353,31 @@
   }
 }
 
+
+.create-playlist-container {
+  margin: 5% 2% 5% 2%; 
+}
+
+.create-playlist-container:after {  
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.create-playlist-container .playlist-name {  
+  width: 80%;
+  float:left;
+  text-align: center;
+  border: none;
+  background-color: #EAEAEA;
+  padding: 5px;
+}
+
+.create-playlist-container .create-button {  
+  padding: 5px;
+  float: left;
+  width: 20%;
+  background-color: #757575;
+  color: #d1d1d1;
+
+}
