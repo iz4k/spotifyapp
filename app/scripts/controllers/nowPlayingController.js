@@ -111,12 +111,29 @@
       element.css({
         'transform': 'translateY(' + height + '%)'
       });
+      $log.log(height);
     };
 
     $scope.touchEnd = function (event) {
       var element = angular.element(document.querySelector('.now-playing'));
-      var y = event.center.y;
+
       var windowHeight = window.innerHeight;
+      // Multiplier must match app.css height for .now-playing
+      var nowPlayingTotalHeight = 0.6 * windowHeight;
+      var y = event.center.y;
+      var height = 80 - 100 * (windowHeight - y) / nowPlayingTotalHeight;
+
+      if (height > 40) {
+        element.css({
+          'transform': 'translateY(' + 80 + '%)',
+          'transition': 'ease-in 0.25s all'
+        });
+      } else if (height < 40) {
+        element.css({
+          'transform': 'translateY(' + 0 + '%)',
+          'transition': 'ease-in 0.25s all'
+        });
+      }
     };
 
     /*
