@@ -6,30 +6,32 @@
 </div>
 -->
 <div class="playlists">
-  <!-- <p ng-if="playlist_opened == true">Swipe right to delete song</p>-->
-  <div ng-repeat="playlist in results" class="playlist" >
+    <!-- <p ng-if="playlist_opened == true">Swipe right to delete song</p>-->
+    <div ng-repeat="playlist in results" class="playlist" >
 
-    <div class="playlist-header" ng-click="openPlaylist(playlist.id, playlist.owner.id)">
-      <img class="playlist-thumbnail" alt="no image" src="{{playlist.images[0].url}}">
+        <div class="playlist-header" 
+            hm-tap="openPlaylist(playlist.id, playlist.owner.id)">
 
-      <p class="title">{{playlist.name}}</p>
+            <img class="playlist-thumbnail" alt="no image" src="{{playlist.images[0].url}}">
+
+            <p class="title">{{playlist.name}}</p>
+        </div>
+
+        <div class="tracks" ng-if="clicked_list == playlist.id">
+            <div class="track" 
+                ng-repeat="item in playlistdata.tracks.items"  
+                hm-tap="trackTap(playlistdata.tracks.items, $index, item.track.album.images[0].url)"
+                hm-swipeleft="trackSwipeLeft(item.track)"
+                hm-swiperight="trackSwipeRight(item.track, $index)"
+                id="track_{{item.track.id}}"
+                >
+
+
+                <img alt="Not found" ng-src="{{item.track.album.images[0].url}}"/><p><i class="fa fa-play-circle-o"></i> {{item.track.name}}</p>
+            </div>
+        </div>
+
     </div>
-
-    <div class="tracks" ng-if="clicked_list == playlist.id">
-      <div class="track" 
-        ng-repeat="item in playlistdata.tracks.items"  
-        hm-tap="trackTap(playlistdata.tracks.items, $index, item.track.album.images[0].url)"
-        hm-swipeleft="trackSwipeLeft(item.track)"
-        hm-swiperight="trackSwipeRight(item.track, $index)"
-        id="track_{{item.track.id}}"
-        >
-        
-
-        <p><i class="fa fa-play-circle-o"></i> {{item.track.name}}</p>
-      </div>
-    </div>
-
-  </div>
 </div>
 
 
