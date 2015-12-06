@@ -81,11 +81,6 @@
 
       });
       $scope.newPlaylistName = "";
-
-
     }
-
-
-
   })
 })();
