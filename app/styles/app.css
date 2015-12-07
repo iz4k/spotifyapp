@@ -168,7 +168,7 @@
         float: left;
         margin-left: 15px;
         max-width: 165px;
-        height: 150px;
+        //height: 150px;
     }
 
     .search-results .albums {
@@ -181,8 +181,9 @@
     }
 
     .search-results img {
-        height: 150px;
-        width: auto;
+        width: 30%;
+        //height: 150px;
+        //width: auto;
         float: left;
     }
     
@@ -312,11 +313,11 @@
     word-wrap: break-word;
 }
 
-.tracks {
+.playlists .playlist .tracks {
     padding: 0% 2% 0% 2%;
 }
 
-.tracks .track {
+.playlists .playlist .tracks .track {
     margin: 1% 0% 1% 0%;
     font-size: 90%;
     background: #999999;
@@ -325,16 +326,16 @@
     padding: 1%;
 }
 
-.tracks .track * {
+.playlists .playlist .tracks .track * {
     display: inline-block;
     vertical-align: middle;
 }
 
-.tracks .track img{
+.playlists .playlist .tracks .track img{
     width:20%;
 } 
 
-.tracks .track p{
+.playlists .playlist .tracks .track p{
     width:60%;
     padding-left: 1%;
 }
@@ -456,3 +457,32 @@
         transform: scale(4);
     }
 }
+
+
+
+
+.search-results .tracks {
+    padding: 0% 2% 0% 2%;
+}
+
+.search-results .tracks .track {
+    margin: 1% 0% 1% 0%;
+    font-size: 90%;
+    border: 1px solid #999999;
+    padding: 1%;
+}
+
+.search-results .tracks .track * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.search-results .tracks .track img{
+    width:20%;
+} 
+
+.search-results .tracks .track p{
+    width:60%;
+    padding-left: 1%;
+}
+

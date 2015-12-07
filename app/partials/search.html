@@ -15,9 +15,9 @@
             </div>
         </div>
         <div class="tracks" ng-if="tapped_item_id == item.id">
-            <div class="track" ng-repeat="track in tracks">
+            <div class="track" ng-repeat="track in top_tracks" hm-tap="trackTapped($index, track.album.images[0].url)">
 
-                <!--<img alt="Not found" ng-src="{{item.track.album.images[0].url}}"/>-->
+                <!--<img alt="Not found" ng-src="{{track.album.images[0].url}}"/>-->
                 <p><i class="fa fa-play-circle-o"></i> {{track.name}}</p>
             </div>
         </div>

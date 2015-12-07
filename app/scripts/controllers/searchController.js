@@ -6,7 +6,7 @@
         $scope.searchType = 'Album';
         $scope.selectedAlbum = '';
         $scope.tapped_item_id = '';
-        $scope.tracks = [];
+        $scope.top_tracks = [];
         $scope.results = [];
         $scope.search = function () {
             spotifyService.getResults({
@@ -14,6 +14,7 @@
                 type: $scope.searchType
             }).$promise.then(function (data) {
                 if ($scope.searchType == 'Album') {
+                    console.log('album items', data.albums.items);
                     $scope.results = data.albums.items;
                     _.each($scope.results, function (album) {
                         spotifyService.getAlbumDetails({
@@ -48,12 +49,20 @@
                     $scope.tapped_item_id = item.id
                         spotifyFactory.getArtistTopTracks(item.id,Auth.getUserCountry()).then(function(data) {
                             console.log('got top tracks ', data);
-                            $scope.tracks=data.tracks;
+                            $scope.top_tracks=data.tracks;
                         });     
                 }
 
 
             }
         };
+
+        $scope.trackTapped = function( position, imageUrl) {
+            console.log("Track tapped");
+            console.log("position: " + position);
+            nowPlayingService.setTracks($scope.top_tracks, false, position, imageUrl);
+        };
+
+
     })
 })();
