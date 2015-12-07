@@ -7,7 +7,7 @@
 </div>
 <div class="search-results-container">
     <div ng-repeat=" item in results " class="search-results" ng-if="searchTerm">
-        <div class="clearfix" hm-tap="selectItem(item)" hm-pinchout="pinchOut(item)">
+        <div class="clearfix" hm-tap="selectItem(item)" >
             <img src="{{item.images[1].url}} " alt="image caption ">
             <div class="content">
                 <p class="albums">{{item.name}}</p>

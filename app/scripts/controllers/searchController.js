@@ -55,11 +55,5 @@
 
             }
         };
-
-        $scope.pinchOut = function(item) {
-            // Maybe something here
-            console.log('Pinched out' + item.name);
-        }
-
     })
 })();
