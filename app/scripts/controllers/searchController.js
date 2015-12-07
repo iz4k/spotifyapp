@@ -40,7 +40,7 @@
                 // GET top popular songs
                 
                 console.log('artist tapped')
-                
+                $scope.top_tracks = []; 
                 if ($scope.tapped_item_id == item.id) {
                     $scope.tapped_item_id = '';
 
