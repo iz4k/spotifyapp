@@ -14,6 +14,7 @@
         $scope.openPlaylist = function(playlist_id, user_id){
             console.log(playlist_id);
             $scope.playlist_opened = true;
+            $scope.playlistdata = [];
 
             if ($scope.clicked_list == playlist_id) {
                 // if the previous click was this element -> hide it.
