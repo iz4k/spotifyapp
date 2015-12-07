@@ -185,7 +185,7 @@
         width: auto;
         float: left;
     }
-
+    
 
     /*login*/
 
@@ -312,12 +312,11 @@
     word-wrap: break-word;
 }
 
-.playlists .playlist .tracks {
+.tracks {
     padding: 0% 2% 0% 2%;
-    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
 }
 
-.playlists .playlist .tracks .track {
+.tracks .track {
     margin: 1% 0% 1% 0%;
     font-size: 90%;
     background: #999999;
@@ -326,16 +325,16 @@
     padding: 1%;
 }
 
-.playlists .playlist .tracks .track * {
+.tracks .track * {
     display: inline-block;
     vertical-align: middle;
 }
 
-.playlists .playlist .tracks .track img{
+.tracks .track img{
     width:20%;
 } 
 
-.playlists .playlist .tracks .track p{
+.tracks .track p{
     width:60%;
     padding-left: 1%;
 }

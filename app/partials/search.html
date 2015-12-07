@@ -6,13 +6,21 @@
     </div>
 </div>
 <div class="search-results-container">
-    <div ng-repeat=" item in results " class="search-results clearfix" ng-if="searchTerm">
-        <div ng-click="selectItem(item)">
+    <div ng-repeat=" item in results " class="search-results" ng-if="searchTerm">
+        <div class="clearfix" hm-tap="selectItem(item)" hm-pinchout="pinchOut(item)">
             <img src="{{item.images[1].url}} " alt="image caption ">
             <div class="content">
                 <p class="albums">{{item.name}}</p>
                 <p class="artists">{{item.info.artists[0].name}}</p>
             </div>
         </div>
+        <div class="tracks" ng-if="tapped_item_id == item.id">
+            <div class="track" ng-repeat="track in tracks">
+
+                <!--<img alt="Not found" ng-src="{{item.track.album.images[0].url}}"/>-->
+                <p><i class="fa fa-play-circle-o"></i> {{track.name}}</p>
+            </div>
+        </div>
+
     </div>
 </div>
