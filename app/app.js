@@ -69,12 +69,14 @@ app.controller('AppController', function ($scope, Auth, $location, spotifyServic
   $scope.$on('login', function() {
     $scope.showplayer = true;
     $scope.showlogin = false;
-    $location.replace('/search');
+    $location.path('/search').replace();
   });
 
   $scope.$on('logout', function() {
     $scope.showplayer = false;
     $scope.showlogin = true;
+    $location.path('search').replace();
+    location.reload(true); // FORCE PAGE REFRESH
   });
 
 

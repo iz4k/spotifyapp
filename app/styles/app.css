@@ -259,14 +259,19 @@
 
 .now-playing p {
     text-align: center;
-    margin: 10px 0;
+    margin: 2% 2%;
     padding: 0;
     color: #fff;
+    
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .now-playing .controls {
-    width: 60%;
-    font-size: 150%;
+    width: 100%;
+    font-size: 130%;
     margin: auto;
     text-align: center;
     color: #fff;
