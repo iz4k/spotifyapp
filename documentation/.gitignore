@@ -1,0 +1,5 @@
+*.pdf
+!IEEEtran_HOWTO.pdf
+*.out
+*.synctex.gz
+*.aux
