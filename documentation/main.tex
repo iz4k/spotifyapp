@@ -357,8 +357,8 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Touch-enabled HTML5 client for Spotify}
-
+%\title{Touch-enabled HTML5 client for Spotify}
+\title{HTML5 Touch}
 
 % author names and affiliations
 % use a multiple column layout for up to three different
@@ -388,12 +388,19 @@ Student number: 78771U\\
 
 \begin{abstract}
 %\boldmath
-As mobile devices are an increasingly common way of using the internet, the need for
-mobile optimized web services has risen. Typical web applications are clumsy at best
-compared to native applications, and get worse the more complex the application gets.
-One way to reduce this gap between mobile web and native applications is to enable
-touch gestures.
-\todo[inline]{Abstrakti on nyt suoraan Research Planista, vaatii muutoksia. Kannattanee kirjoittaa vasta lopuksi.}
+
+
+
+
+%As mobile devices evolve more and more sophiscticated the As mobile devices are an increasingly common way of using the internet, the need for mobile optimized web services Typical web applications are clumsy at best compared to native applications, and get worse the more complex the application gets. 
+
+Mobile web or web applications have for long suffered from poor usability and ineffective use of resources that mobile devices have. Partly, because web applications are developed for all devices but also because mobile devices have lacked the sophistication and the technologies to improve the usability. But as mobile devices and the technologies evolve progressively sophisticated, more suitable, usable and native like web applications we can build for mobile devices.
+
+In this article, we present a web application that is designed for mobile devices, implements HTML touch gestures and utilizes an external Spotify API. We explore the current status of mobile touch technologies and to find and highlight some of the most common problems and difficulties in developing touch enabled web applications. 
+
+%One way to reduce this gap between mobile web and native applications is to enable
+%touch gestures.
+%\todo[inline]{Abstrakti on nyt suoraan Research Planista, vaatii muutoksia. Kannattanee kirjoittaa vasta lopuksi.}
 
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -405,7 +412,7 @@ touch gestures.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-HTML, Touch, Javascript, Spotify.
+HTML, Touch, Javascript, Spotify, Touch Events.
 \end{IEEEkeywords}
 
 
@@ -423,10 +430,9 @@ HTML, Touch, Javascript, Spotify.
 
 Mobile devices such as smartphones and tablets typically feature a capacitive touch screen. As mobile devices are becoming the most popular mean of accessing Internet, web developers need ways to create touch enabled and mobile friendly applications. 
 
-Apple introduced the Touch Events API in 2007 along with the iPhone to support touch events. W3C tried to standardize Touch Events, but they ran into patent issues with Apple, so the development was stalled. Meanwhile, Microsoft developed its own Pointer Events API, intended to unify different inputs including mouse, touch and pen. 
+Apple introduced the Touch Events API in 2007 along with the iPhone to support touch events. W3C tried to standardize Touch Events, but they ran into patent issues with Apple, so for a considerable time the development was stalled. Meanwhile, Microsoft developed its own Pointer Events API, intended to unify different user input events including mouse, touch and stylus. 
 
-Later, as the patent issue with Apple were not a problem for W3C anymore, Touch Events was standardized in 2013 \cite{W3CTouchEvents}. Things weren't so good for Pointer Events as chromium dropped support for it in 2014, citing performance along with other problems as an issue \url{https://code.google.com/p/chromium/issues/detail?id=162757#c64}. As a result, the browser support for Pointer Events is only backed by Microsoft's own browsers as seen in the figure below. However, in 2015 Google, along with Firefox announced their intent to support Pointer Events in Chrome in the near future. 
-
+In 2013 Touch Events was standardized, as the patent issue with Apple were not a problem for W3C anymore \cite{W3CTouchEvents}. Things weren't so good for Pointer Events as Chromium dropped support for it in 2014, citing performance along with other problems as main issues \cite{CodeGoogle}. As a result, the browser support for Pointer Events is only backed by Microsoft's own browsers as seen in the figure below. However, in 2015 Google announced their intent to support Pointer Events in Chrome in near future. 
 
 \begin{figure}[htbd]
     \centering
@@ -447,26 +453,27 @@ Later, as the patent issue with Apple were not a problem for W3C anymore, Touch 
 %\todo[inline]{Tarkempi introduction ja ongelmakuvaus.}
 
 
-In this article, we present a web application that is designed for mobile devices, implements HTML touch gestures and utilizes an external Spotify API. Our primary research goals were to explore the current status of mobile touch technologies and to find and highlight some of the most common problems and difficulties in developing touch web applications. In addition we demonstrate some practical usefulness of touch gestures.
+
+
+%In addition we demonstrate some practical usefulness of touch gestures.
 
 
 \section{Related work}
 
-According to Bragdon et al. direct touch gestures can produce on-par performance and accuracy compared to buttons elements. Some touch gestures can even offer significant performance gains, especially in situations with environmental distractions.
-\cite{BragdonExperimental}
+
+
+According to Bragdon et al. direct touch gestures can produce on-par performance and accuracy compared to buttons elements. Some touch gestures can even offer significant performance gains, especially in situations with environmental distractions. \cite{BragdonExperimental}
 
 Since the main use case for our application is Spotify on a smartphone, it is reasonable to assume that the user might be on the go and that there are various environmental distractions present.
 
 Billinghurst and Vu studied touch gesture usage for web browsing tasks, and found that single finger, single motion gestures
-are the most natural kind of gestures for web users.
-\cite{BillinghurstGestures}
+are the most natural kind of gestures for web users. \cite{BillinghurstGestures}
 
 Buchinger et al. implemented a touch gesture interface for a video player on a mobile device.
 Their study showed that users find simple swiping and sliding gestures very intuitive on a touch screen.
-However, diagonal swiping felt unintuitive for most test subjects, and should be avoided.
-\cite{GestureVideoPlayer}
-\todo[inline]{lissaa asioita}
-\todo[inline]{Jotain juttua olemassaolevasta Spotify-applikaatiosta Androidille?}
+However, diagonal swiping felt unintuitive for most test subjects, and should be avoided. \cite{GestureVideoPlayer}
+
+
 
 \section{Technologies}
 Interactive web applications are ubiquitous these days, and many tools and frameworks exist to get the job done.
@@ -484,29 +491,37 @@ Spotify has developed a RESTful Spotify Web API for third-party developers \cite
 
 Spotify API offers an extensive access to most of Spotify's content and functionalities. It allows third-party applications to browse artists, albums, tracks and other elementary objects in the Spotify database. 
 
-However, the most important functionality of any Spotify client, complete track playback, is not possible (as of 2015). The API only prohibits the playback of 30 second long samples. But, since our focus is on the user interface and touch gestures, and the project described in this report is merely a proof-of-concept, the lack of complete tracks is not a big issue.
+However, the most important functionality of any Spotify client, a complete track playback, is not possible (in 2015). The API only allows the playback of 30 second long samples. But, since our focus is on the user interface and touch gestures and the project described in this report is merely a proof-of-concept, the lack of complete tracks is not a big issue.
 
 \subsection{AngularJS}
 The Spotify client application described in this report is built on the AngularJS web application framework \cite{AngularJS}.
 
-AngularJS allows the user to employ any of the common MVx design patterns like Model-View-Presenter, Model-View-ViewModel or Model-View-Controller.
-AngularJS calls this MVW, or Model-View-Whatever.
+AngularJS allows the user to employ any of the common MVx design patterns like Model-View-Presenter, Model-View-ViewModel or Model-View-Controller.AngularJS calls this MVW, or Model-View-Whatever.
 
-AngularJS was chosen due to its maturity and the wide availability of documentation, and the relative ease of prototyping new applications.
+AngularJS was chosen due to its maturity and modularity, the wide availability of documentation and the relative ease of prototyping new applications. Furthermore, AngularJS is the front-end framework that we all have the most experience on.
 
 \subsection{Hammer.js}
-A Javascript library called Hammer.js is responsible for handling the different touch gestures.
-Hammer.js integrates well into AngularJS, is easy to use and offers a multitude of touch gesture recognizer components.
-Hammer.js also supports multi-touch gestures.
-\cite{HammerJS}
 
-\section{Application user interface}
+We chose a Javascript library called Hammer.js to coordinate and handle the different touch gestures \cite{HammerJS}. Hammer.js is fairly easy to use exists as a module for AngularJs. It utilizes the Touch Events API and provides simple and prefigured touch gesture recognizers. HammerJs supports most popular browsers from mobile to desktop, with the notable exception of Internet Explorer 8 and older \cite{HammerJSBrowserSupport}.
+
+
+
+
+%\section{Application user interface}
+
+\section{Spotify Touch}
+
 The user interface for the application was designed with the existing Spotify Android client in mind,
-since that is what the users are already familiar with.
-We added several touch events where they seemed fitting.
+since that is what the users are already familiar with. Along with gestures, we added animations to guide and ease the use of the applications. We added the following touch gestures to events which we saw most suitable:
 
-The two main views of the application are the search view and the playlist view.
-They are described in more detail below.
+\begin{itemize}
+\item Tap
+\item Hold
+\item Swipe up/down
+\item Swipe left/right
+\end{itemize}
+
+The two main views of the application are the search view and the playlist view. They are described in more detail below.
 
 \begin{figure}[htbp]
     \centering
@@ -534,27 +549,28 @@ They are described in more detail below.
         \caption{Main menu open}
         \label{fig:MenuView}
     \end{subfigure}
+    \begin{subfigure}{0.45\columnwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{playlistopen.png}
+        \caption{Opened playlist}
+        \label{fig:PlaylistOpen}
+    
+    \end{subfigure}
     \caption{User interface on a mobile display.}
     \label{fig:GUI}
 \end{figure}
 
-Figure \ref{fig:GUI} shows different views of the application.
-The default view after logging in is the search view shown in figure \ref{fig:SearchView}.
-The search view allows the user to search for either music albums or artists.
-Typing text in the search term field automatically triggers the search and shows results as a list below.
+Figure \ref{fig:GUI} shows different views of the application. The default view after logging in is the search view shown in figure \ref{fig:SearchView}. The search view allows the user to search for either music albums or artists. Typing text in the search term field automatically triggers the search and shows results as a list below.
 The list can be scrolled up and down by dragging with one finger.
 
-Figure \ref{fig:PlaylistView} shows the playlist view, where the user can view, edit and listen to their playlists.
-\todo[inline]{Kuvaus playlistien eri touch eventeista.}
+Figure \ref{fig:PlaylistView} shows the playlist view, where the user can view, edit and listen to their playlists. An opened playlist is shown in the figure \ref{fig:PlaylistOpen}.
 
-The currently playing track is always visible on the bottom of the screen.
-By dragging the bottom bar up, the album cover art becomes visible, as shown in figure \ref{fig:NowPlayingView}.
-The next or previous track can be played by swiping the cover art image left or right.
+Playlists feature couple touch gestures. Holding a playlist for a while triggers playlist removal and a disappearing animation. Tapping a playlist shows the playlists tracks under the tapped playlist. By swiping track right, user can delete that track from the containing playlist. Tapping a track starts the playback of that track.
+
+The currently playing track is always visible on the bottom of the screen. By dragging the bottom bar up, the album cover art becomes visible, as shown in figure \ref{fig:NowPlayingView}. The next or previous track can be played by swiping the cover art image left or right. 
 
 A menu tab is always visible in the top left corner of the display.
-Dragging the tab down with one finger opens the menu, as shown in figure \ref{fig:MenuView}.
-The menu lets the user select either the search view or the playlist view, or log out completely.
-The menu can be closed by dragging the tab back up.
+Dragging the tab down with one finger opens the menu, as shown in figure \ref{fig:MenuView}. The menu lets the user select either the search view or the playlist view, or log out completely. The menu can be closed by dragging the tab back up.
 
 \begin{table}[htbp]
     \centering
@@ -573,8 +589,13 @@ Altogether three different touch gestures are used in the user interface.
 The gestures are summarized in table \ref{tab:Gestures}.
 
 
-\section{Research methods}
-\todo[inline]{Toimivuuden arvioinnista.}
+%\section{Research methods}
+
+
+
+%\todo[inline]{Toimivuuden arvioinnista.}
+
+
 
 \section{Results}
 
@@ -584,28 +605,44 @@ The gestures are summarized in table \ref{tab:Gestures}.
         \hline
         Device & Browser & Notes \\ \hline
         Windows PC & Chrome & Touch emulation seems to stop working from time to time. \\ \hline
-        Sony Xperia Z3 & Chrome & Works similar to desktop Chrome. Search results get unintentionally scrolled from time to time. \\ \hline
+        %Sony Xperia Z3 & Chrome & Works similar to desktop Chrome. Search results get unintentionally scrolled from time to time. \\ \hline
         Nokia Lumia 1520 & Internet Explorer & Dragging and swiping does not work at all. \\ \hline
+        Android & Chrome for Android & Default pull to refresh is out of place at times. \\ \hline
+        iPhone & Safari for iOS & Seems to be working \\ \hline
+        
+        
     \end{tabular}
     \caption{Tested devices}
     \label{tab:devices}
 \end{table}
 
-We collected feedback from user tests.
-A summary of the most common comments is shown below.
+We tested the application with the different devices that we could get our hands on, mainly chrome mobile emulation and chrome for android. We did also do some usability testing, but as our application is quite standard form, we didn't come up with radically better or intuitive touch gestures. During the development process, we encountered several problems or issues that are good to know for anyone wanting to implement touch gestures in a web application. 
 
-\begin{itemize}
-    \item Tap-and-hold gesture unintuitive without any visual feedback, and easy to do unintentionally.
-    \item Search result list might get scrolled when the user drags or swipes another element in front of the list.
-\end{itemize}
+
+%We collected feedback from user tests.
+%A summary of the most common comments is shown below.
+
+%\begin{itemize}
+%    \item Tap-and-hold gesture unintuitive without any visual feedback, and easy to do unintentionally.
+%    \item Search result list might get scrolled when the user drags or swipes another element in front of the list.
+%\end{itemize}
 
 \section{Analysis}
-...
+
+
+Mobile browsers have default behavior, which can disable or prevent application touch gestures. Finding and preventing the default behavior is crucial if the application is to have working touch gestures and to be cross browser compliant. The main default browser problems we noticed were zooming, pull down refresh (Chrome for Android) and overscroll (iOS Safari). Preventing the zoom is easy, as it can be done by a simple header meta tag. But the pull down refresh and the overscroll were bit more tricky. Typically, preventing the default touchmove on the whole page, would cause other problems, such as rendering the whole page unscrollable. Therefore default behavior prevention had to be done for every element that utilizes swipes up or down. This can be a little arduous and difficult by development perspective, as every developer should remember which default behaviors to disable for certain elements and which not, especially if the application grows large.
+
+Another problem that we encountered is gesture overlapping. Some gestures could not be implemented (namely rotation and pinching), because there was an existing gesture that would have a similar initial gesture. For example, both rotation and pinching would effectively prevent scrolling on any page, thus they could not be implemented at all, even for novel gestures. For the same reason, combining multiple consecutive gestures into a single gesture was impossible, even though Hammer.Js supports that feature. In hindsight, our decision to develop a software client was the biggest reason for these touch gesture implementation difficulties. Obviously, yet another drawing software would have been easier platform to create fancy gestures on, but we intentionally wanted to demo touch gestures in a more practical everyday application. 
+
+While we relied mostly on Chrome's touch emulator, testing with real devices is still really important in order to find and debug touch gesture problems. While the Chrome touch gesture emulator mimics a mobile device just fine, some strange problems might still exist with real mobile browsers. Furthermore, unexpected behavior of the Chrome's touch emulation made our development harder. For example, the touch emulation would almost periodically stop working for no obvious reasons. For that we could not find any solution, even after intensive googling. 
+
 
 \section{Conclusions}
-...
 
 
+While modern web frameworks and easy-to-add modules make the development of touch enabled web applications easier, there are still plenty of problems on the way, if touch gestures are ever to become widely used. Firstly, the standardization still presents some problems (namely Apple and might be closed standard) and the general lack of good developer tools. Unfortunately, judging by the amount of bugs and discrepancies between emulators and real devices some proper improvement in those tools are needed. Furthermore, to prevent overlaps between browser and web application gestures, more communication between browser developers and web application developers surely could help. Perhaps more definitive division between browser and web application roles in gestures would be great. Personally, we think that gestures should be left for web applications rather than browsers. For example, pull down refresh exists due to the unwillingness to have a refresh button in the url bar.  
+
+All in all, HTML touch gestures will surely be in the interest of both browser developers and web application developers. The future state of touch gestures is certainly interesting. Google's support for the Pointer Events API will decrease HTML touch technologies dependency of Apple. Furthermore, the more general design idea of Pointer events is certainly good for web developers, making development for multiple input types (touch, mouse, stylus) easier.
 
 
 
@@ -670,6 +707,16 @@ A summary of the most common comments is shown below.
 %\bibitem{IEEEhowto:kopka}
 %H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
   %0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\bibitem{W3CTouchEvents}
+World Wide Web Consortium W3C. 2015. ``Touch Events''. [ONLINE] Available at: \url{http://www.w3.org/TR/touch-events/} . [Accessed 26 December 2015].
+
+  
+\bibitem{CodeGoogle}
+Code.google.com. 2012. ``Issue 162757 -  chromium -  Implement pointer events in Chrome behind experimental flag -  An open-source project to help move the web forward. - Google Project Hosting``. [ONLINE] Available at: \url{https://code.google.com/p/chromium/issues/detail?id=162757#c64} . [Accessed 2015-12-20].
+
+
+  
 \bibitem{MobileHTML5}
 Mobilehtml5.org. 2015. ``Mobile HTML5 compatibility on iPhone, Android, Windows Phone, BlackBerry, Firefox OS and other mobile devices``. [ONLINE] Available at: \url{http://mobilehtml5.org} . [Accessed 23 December 2015].
 
@@ -688,8 +735,9 @@ AngularJS. 2015. AngularJS - Superheroic JavaScript MVW Framework. [Online] Avai
 \bibitem{BragdonExperimental}
 A. Bragdon, E. Nelson, Y. Li, and K. Hinckley, ``Experimental analysis of touch-screen gesture designs in mobile environments'' In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '11), 2011.
 
-\bibitem{W3CTouchEvents}
-World Wide Web Consortium W3C. 2015. ``Touch Events''. [ONLINE] Available at: \url{http://www.w3.org/TR/touch-events/} . [Accessed 26 December 2015].
+\bibitem{HammerJSBrowserSupport}
+Hammerjs.github.io. 2015. ``Browser/device support - Hammer.js``. [ONLINE] Available at: \url{http://hammerjs.github.io/browser-support/} . [Accessed 20 December 2015]
+
 
 \bibitem{W3Counter}
 W3Counter. 2015. ``W3Counter: Browser, OS Market Share Trends''. [ONLINE] Available at: \url{http://www.w3counter.com/trends} . [Accessed 27 December 2015].
